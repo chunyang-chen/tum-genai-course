@@ -1,0 +1,41 @@
+---
+import type { ShowcaseTabSpec } from "../content/site";
+
+interface Props {
+  tabs: ShowcaseTabSpec[];
+  defaultTab: string;
+  centered?: boolean;
+  compact?: boolean;
+}
+
+const { tabs, defaultTab, centered = false, compact = false } = Astro.props;
+---
+
+<div data-tab-group data-default-tab={defaultTab}>
+  <div
+    class:list={[
+      "mb-10 flex flex-wrap items-center gap-3 rounded-full bg-surface-container-low p-2 w-fit",
+      centered && "mx-auto",
+      compact && "mb-8"
+    ]}
+  >
+    {tabs.map((tab) => (
+      <button
+        type="button"
+        data-tab-trigger={tab.id}
+        aria-selected={tab.id === defaultTab}
+        class:list={[
+          "rounded-full px-6 py-2.5 text-sm transition-all",
+          tab.id === defaultTab
+            ? "bg-primary text-on-primary shadow-sm font-semibold"
+            : "text-on-surface-variant hover:bg-surface-container-highest font-medium"
+        ]}
+      >
+        {tab.label}
+      </button>
+    ))}
+  </div>
+  <div class="space-y-8">
+    <slot />
+  </div>
+</div>

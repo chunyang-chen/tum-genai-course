@@ -1,0 +1,18 @@
+---
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  dark?: boolean;
+  compact?: boolean;
+}
+
+const { kicker, title, body, dark = false, compact = false } = Astro.props;
+---
+
+<article class:list={["showcase-spotlight", dark && "showcase-spotlight--dark", compact && "showcase-spotlight--compact"]}>
+  <p class="showcase-kicker">{kicker}</p>
+  <h3>{title}</h3>
+  <p>{body}</p>
+  <slot />
+</article>

@@ -1,0 +1,21 @@
+---
+interface Props {
+  kicker?: string;
+  title: string;
+  accent?: string;
+  description?: string;
+  compact?: boolean;
+  blue?: boolean;
+}
+
+const { kicker, title, accent, description, compact = false, blue = false } = Astro.props;
+---
+
+<header class:list={["showcase-hero", compact && "showcase-hero--compact"]}>
+  {kicker && <p class="showcase-kicker">{kicker}</p>}
+  <h1 class:list={["showcase-title", blue && "showcase-title--blue"]}>
+    {title}
+    {accent && <span>{accent}</span>}
+  </h1>
+  {description && <p class="showcase-copy">{description}</p>}
+</header>

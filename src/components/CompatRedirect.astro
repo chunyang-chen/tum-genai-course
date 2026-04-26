@@ -1,0 +1,33 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  target: string;
+  title: string;
+  message: string;
+}
+
+const { target, title, message } = Astro.props;
+---
+
+<BaseLayout title={title} path={Astro.url.pathname} description={message}>
+  <main class="mx-auto flex min-h-[70vh] max-w-4xl items-center justify-center px-6 pt-32">
+    <section class="w-full max-w-xl rounded-3xl bg-surface-container-low p-10 text-center">
+      <p class="mb-4 text-xs font-bold uppercase tracking-widest text-primary font-headline">Route moved</p>
+      <h1 class="mb-4 font-headline text-5xl font-extrabold tracking-tight text-on-surface">{title}</h1>
+      <p class="mb-8 text-lg leading-relaxed text-on-surface-variant">{message}</p>
+      <p>
+        <a
+          class="inline-flex items-center gap-2 rounded-md bg-primary px-8 py-3.5 font-bold text-on-primary transition-all hover:bg-primary-container"
+          href={target}
+        >
+          Continue
+          <span class="material-symbols-outlined">arrow_outward</span>
+        </a>
+      </p>
+    </section>
+  </main>
+  <script is:inline define:vars={{ target }}>
+    window.location.replace(target);
+  </script>
+</BaseLayout>

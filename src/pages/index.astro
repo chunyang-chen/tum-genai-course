@@ -1,0 +1,269 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import FeedbackShowcase from "../components/FeedbackShowcase.astro";
+import {
+  currentSemester,
+  faqSummary,
+  getFeaturedProject,
+  getSemesterLectureSlots,
+  latestInsightsSemesterId,
+  metricsHighlights,
+  modulePreview,
+  showcaseMedia,
+  siteMeta
+} from "../content/site";
+import { isExternalUrl } from "../utils/links";
+
+const featuredProject = getFeaturedProject(currentSemester.id);
+const semesterLectures = getSemesterLectureSlots(latestInsightsSemesterId);
+const metricsMax = Math.max(...metricsHighlights.map((item) => item.value));
+const guestInsightsTwoUp = semesterLectures.length === 2;
+
+const heroFacts = [
+  ["Lecturer", siteMeta.lecturer],
+  ["Language", siteMeta.language],
+  ["Format", "Lecture + Exercise"]
+] as const;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `${siteMeta.title} home`,
+  description: siteMeta.description,
+  url: new URL("", Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title="Home"
+  description={siteMeta.description}
+  path="/"
+  schema={schema}
+>
+  <main class="pt-16">
+    <section class="relative flex min-h-[640px] items-center overflow-hidden bg-surface">
+      <div class="home-orb absolute inset-0 z-0 overflow-hidden opacity-10">
+        <div class="absolute right-[-10%] top-[-10%] h-[80%] w-[60%] rounded-full bg-primary-fixed blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] h-[70%] w-[50%] rounded-full bg-tertiary-fixed blur-[100px]"></div>
+      </div>
+
+      <div class="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-14">
+        <div class="flex flex-col justify-center">
+          <div class="mb-6 inline-flex w-fit items-center gap-2 rounded-full bg-surface-container-low px-4 py-1.5 text-sm font-semibold text-primary">
+            <span class="material-symbols-outlined text-[18px]">school</span>
+            {siteMeta.code} - {siteMeta.semester}
+          </div>
+
+          <h1 class="mb-6 max-w-4xl text-5xl font-extrabold leading-[1.1] tracking-tight text-on-surface lg:text-6xl font-headline">
+            Foundations and Application of{" "}
+            <span class="bg-gradient-to-r from-primary to-primary-container bg-clip-text text-transparent">
+              Generative AI
+            </span>
+          </h1>
+
+          <p class="mb-8 max-w-2xl text-lg font-light leading-relaxed text-on-surface-variant">
+            Explore modern large language models, multimodal systems, and project-led implementation
+            paths for students who want both technical grounding and responsible deployment thinking.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a
+              class="flex items-center gap-2 rounded-md bg-primary px-8 py-3.5 font-bold text-on-primary transition-all hover:bg-primary-container"
+              href={siteMeta.officialUrl}
+              target={isExternalUrl(siteMeta.officialUrl) ? "_blank" : undefined}
+              rel={isExternalUrl(siteMeta.officialUrl) ? "noopener noreferrer" : undefined}
+            >
+              Official TUM Online
+              <span class="material-symbols-outlined">arrow_outward</span>
+            </a>
+            <a
+              class="flex items-center gap-2 rounded-md border border-outline-variant px-8 py-3.5 font-bold text-on-surface transition-all hover:bg-surface-container-low"
+              href={siteMeta.moodleUrl}
+              target={isExternalUrl(siteMeta.moodleUrl) ? "_blank" : undefined}
+              rel={isExternalUrl(siteMeta.moodleUrl) ? "noopener noreferrer" : undefined}
+            >
+              Moodle Access
+              <span class="material-symbols-outlined">login</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex items-start">
+          <div class="ai-module w-full rounded-[2rem] border border-white/20 p-6">
+            <div class="space-y-6">
+              {heroFacts.map(([label, value], index) => (
+                <div class="flex items-start gap-4">
+                  <div class="rounded-xl bg-primary/10 p-3">
+                    <span class="material-symbols-outlined text-primary">
+                      {["person", "translate", "layers"][index]}
+                    </span>
+                  </div>
+                  <div>
+                    <p class="mb-1 text-xs font-bold uppercase tracking-widest text-secondary">{label}</p>
+                    <p class="text-lg font-bold text-on-surface">{value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low py-16">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-10 text-center lg:text-left">
+          <h2 class="mb-3 text-3xl font-extrabold text-on-surface font-headline">Core Curriculum</h2>
+          <p class="max-w-xl text-on-surface-variant">
+            Our public syllabus covers the major threads of generative AI, from theoretical models to
+            applied systems.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
+          {modulePreview.map((module, index) => (
+            <div
+              class:list={[
+                "rounded-2xl bg-surface-container-lowest p-8 transition-all",
+                index === 0 ? "border-l-4 border-primary md:col-span-2" : "",
+                index === 4 ? "border-l-4 border-tertiary md:col-span-2" : "",
+                index !== 0 && index !== 4 && "hover:bg-surface-bright"
+              ]}
+            >
+              <span class="material-symbols-outlined mb-4 text-4xl text-primary">
+                {["architecture", "terminal", "smart_toy", "visibility", "psychology", "lock"][index]}
+              </span>
+              <h3 class="mb-2 text-xl font-bold font-headline">{module.title}</h3>
+              <p class="text-sm text-on-surface-variant">{module.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-on-surface py-16 text-surface">
+      <div class="mx-auto max-w-7xl px-6 text-center">
+        <h2 class="mb-3 text-3xl font-extrabold font-headline">Innovation Spotlight</h2>
+        <p class="mx-auto mb-10 max-w-2xl text-secondary-fixed-dim">
+          Witness how our students translate course themes into end-to-end prototypes and reflective
+          project delivery.
+        </p>
+
+        <div class="group relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+          <img class="h-full w-full object-cover opacity-50" src={showcaseMedia.homeSpotlight} alt="Featured project visual" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary transition-transform group-hover:scale-110">
+              <span class="material-symbols-outlined ml-1 text-3xl text-on-primary">play_arrow</span>
+            </div>
+          </div>
+          <div class="absolute bottom-8 left-8 text-left">
+            <p class="mb-1 text-xs font-bold uppercase tracking-widest text-primary-fixed">Featured Student Project</p>
+            <p class="text-xl font-bold">{featuredProject.title}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16">
+      <div class="mx-auto max-w-7xl px-6">
+        <div class="mb-10">
+          <h2 class="mb-2 text-3xl font-extrabold text-on-surface font-headline">Guest Insights</h2>
+          <p class="text-on-surface-variant">Deep dives from industry leaders and academic pioneers.</p>
+        </div>
+
+        <div
+          class:list={[
+            "grid grid-cols-1 gap-8",
+            guestInsightsTwoUp ? "mx-auto md:max-w-4xl md:grid-cols-2" : "md:grid-cols-3"
+          ]}
+        >
+          {semesterLectures.map((lecture) => (
+            <article class="rounded-2xl bg-surface-container-low p-8 transition-transform hover:-translate-y-1">
+              <div class="mb-6 h-16 w-16 overflow-hidden rounded-full bg-slate-300">
+                {lecture.imageSrc ? (
+                  <img class="h-full w-full object-cover" src={lecture.imageSrc} alt={`Portrait of ${lecture.speaker}`} />
+                ) : (
+                  <div class="placeholder-avatar h-full w-full" aria-hidden="true">
+                    <span>{lecture.initials}</span>
+                  </div>
+                )}
+              </div>
+              <h3 class="mb-1 text-xl font-bold font-headline">{lecture.speaker}</h3>
+              <p class="mb-4 text-sm font-semibold text-primary">{lecture.affiliation}</p>
+              <p class="text-sm text-on-surface-variant">"{lecture.topic}."</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <FeedbackShowcase />
+
+    <section class="bg-surface py-16">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
+        <div>
+          <h2 class="mb-4 text-3xl font-extrabold text-on-surface font-headline">Exponential Growth</h2>
+          <p class="mb-6 text-lg leading-relaxed text-on-surface-variant">
+            The course has seen strong interest across TUM programs, reflecting the demand for
+            technically grounded generative AI education.
+          </p>
+          <div class="space-y-4">
+            {metricsHighlights.map((item, index) => (
+              <div
+                class:list={[
+                  "flex items-center justify-between rounded-xl p-3.5",
+                  index === 3
+                    ? "bg-primary text-on-primary shadow-md"
+                    : index === 4
+                      ? "border border-primary/20 bg-surface-container-low"
+                      : "bg-surface-container-low"
+                ]}
+              >
+                <span class="text-sm font-bold">{item.label}</span>
+                <span class:list={[index === 3 ? "font-black" : "font-black text-primary"]}>
+                  {item.value} {item.note}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="relative flex h-[350px] items-end justify-between gap-4 pt-10">
+          {metricsHighlights.map((item, index) => (
+            <div
+              class:list={[
+                "flex-1 rounded-t-lg transition-all",
+                index === 3 ? "bg-primary" : "bg-surface-container-high hover:bg-primary-container"
+              ]}
+              style={`height: ${(item.value / metricsMax) * 100}%;`}
+            ></div>
+          ))}
+          <div class="absolute -bottom-6 flex w-full justify-between text-[10px] font-bold uppercase tracking-widest text-secondary">
+            <span>S24</span>
+            <span>W24</span>
+            <span>S25</span>
+            <span>W25</span>
+            <span>S26</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16" id="faq">
+      <div class="mx-auto max-w-3xl px-6" id="assessment">
+        <h2 class="mb-10 text-center text-3xl font-extrabold text-on-surface font-headline">Course FAQ</h2>
+        <div class="space-y-4">
+          {faqSummary.map((item, index) => (
+            <details class="overflow-hidden rounded-2xl bg-surface-container-low transition-all hover:bg-surface-container" open={index === 0}>
+              <summary class="flex cursor-pointer items-center justify-between p-5 text-left font-bold">
+                {item.question}
+                <span class="material-symbols-outlined">expand_more</span>
+              </summary>
+              <div class="px-5 pb-5 text-sm text-on-surface-variant">{item.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

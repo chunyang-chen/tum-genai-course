@@ -1,0 +1,128 @@
+---
+import { homeFeedback, homeFeedbackQuotes } from "../content/site";
+
+const feedbackPages = Array.from({ length: Math.ceil(homeFeedbackQuotes.length / 3) }, (_, index) =>
+  homeFeedbackQuotes.slice(index * 3, index * 3 + 3)
+);
+---
+
+<section class="feedback-panel overflow-hidden bg-surface-container-low py-16" aria-labelledby="feedback-title">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="feedback-panel__header mb-10 text-center">
+      <p class="mb-3 text-xs font-bold uppercase tracking-widest text-primary font-headline">Student perspective</p>
+      <h2 id="feedback-title" class="text-3xl font-extrabold text-on-surface font-headline">What Students Say</h2>
+      <p class="mx-auto mt-3 max-w-3xl text-base leading-relaxed text-on-surface-variant">{homeFeedback.intro}</p>
+    </div>
+
+    <div class="feedback-stage" aria-live="polite" data-feedback-rotator data-rotation-ms={homeFeedback.rotationMs}>
+      <div class="feedback-stage__viewport">
+        {feedbackPages.map((page, pageIndex) => (
+          <div
+            class:list={["feedback-page", pageIndex === 0 && "is-active"]}
+            data-feedback-page
+            aria-hidden={pageIndex === 0 ? "false" : "true"}
+          >
+            {page.map((quote) => (
+              <article class="feedback-quote-card rounded-3xl bg-surface-container-lowest p-8 editorial-shadow">
+                <span
+                  class="material-symbols-outlined absolute right-6 top-6 text-5xl text-primary/20"
+                  style="font-variation-settings: 'FILL' 1;"
+                  aria-hidden="true"
+                >
+                  format_quote
+                </span>
+                <p class="feedback-quote-card__text relative z-10 mb-6 text-lg italic leading-relaxed text-on-surface-variant">
+                  "{quote.text}"
+                </p>
+                <div class="feedback-quote-card__meta flex items-center gap-3 text-sm">
+                  <span class="rounded-full bg-surface-container-high px-3 py-1 font-bold uppercase tracking-widest text-primary">
+                    {quote.semesterLabel}
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div class="feedback-stage__footer mt-8 flex flex-col items-center gap-4">
+        <div class="flex flex-wrap justify-center gap-2" aria-hidden="true">
+          {homeFeedback.themes.map((theme) => (
+            <span class="theme-tag rounded-full bg-surface-container-high px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
+              {theme}
+            </span>
+          ))}
+        </div>
+
+        <div class="feedback-dots flex items-center gap-3" aria-label="Feedback rotation">
+          {feedbackPages.map((_, pageIndex) => (
+            <button
+              type="button"
+              class:list={["feedback-dot", pageIndex === 0 && "is-active"]}
+              data-feedback-dot={pageIndex}
+              aria-label={`Show feedback group ${pageIndex + 1}`}
+            ></button>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    document.querySelectorAll("[data-feedback-rotator]").forEach((root) => {
+      const pages = Array.from(root.querySelectorAll("[data-feedback-page]"));
+      const dots = Array.from(root.querySelectorAll("[data-feedback-dot]"));
+      const rotationMs = Number(root.getAttribute("data-rotation-ms") || 7000);
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (pages.length <= 1) {
+        return;
+      }
+
+      let activeIndex = 0;
+      let timer = null;
+
+      const activate = (nextIndex) => {
+        activeIndex = nextIndex;
+        pages.forEach((page, pageIndex) => {
+          const active = pageIndex === activeIndex;
+          page.classList.toggle("is-active", active);
+          page.setAttribute("aria-hidden", active ? "false" : "true");
+        });
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === activeIndex);
+        });
+      };
+
+      const stop = () => {
+        if (timer) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+      };
+
+      const start = () => {
+        if (prefersReducedMotion || timer) {
+          return;
+        }
+        timer = window.setInterval(() => {
+          activate((activeIndex + 1) % pages.length);
+        }, rotationMs);
+      };
+
+      dots.forEach((dot, dotIndex) => {
+        dot.addEventListener("click", () => {
+          activate(dotIndex);
+        });
+      });
+
+      root.addEventListener("mouseenter", stop);
+      root.addEventListener("mouseleave", start);
+      root.addEventListener("focusin", stop);
+      root.addEventListener("focusout", start);
+
+      activate(0);
+      start();
+    });
+  </script>
+</section>

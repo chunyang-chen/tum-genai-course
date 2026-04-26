@@ -1,0 +1,128 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import { resourceBanner, resourceLinks, resourcesAccessLogic, siteMeta } from "../content/site";
+import { isExternalUrl } from "../utils/links";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `${siteMeta.title} resources`,
+  description: "Public links and access logic for the TUM generative AI course.",
+  url: new URL("/resources", Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title="Resources"
+  description="Public resources and access logic for the TUM generative AI course."
+  path="/resources"
+  breadcrumbs={[{ name: "Resources", href: "/resources" }]}
+  schema={schema}
+>
+  <main class="mx-auto max-w-7xl px-6 pb-24 pt-32">
+    <header class="mb-20 md:ml-[8.333%]">
+      <h1 class="mb-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface md:text-7xl">
+        Public Resources
+      </h1>
+      <p class="max-w-2xl text-xl leading-relaxed text-on-surface-variant">
+        Access the foundational pillars of our academic ecosystem. While course philosophy is public,
+        specific instructional materials remain within our secure university environments.
+      </p>
+    </header>
+
+    <section class="mb-24 grid grid-cols-1 gap-8 md:grid-cols-3">
+      {resourceLinks.map((resource, index) => (
+        <a
+          href={resource.href}
+          target={isExternalUrl(resource.href) ? "_blank" : undefined}
+          rel={isExternalUrl(resource.href) ? "noopener noreferrer" : undefined}
+          class:list={[
+            "editorial-shadow group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-[1.75rem] p-6 transition-all duration-300 md:rounded-[1.9rem]",
+            resource.emphasis === "primary"
+              ? "bg-primary-container text-on-primary-container hover:brightness-110"
+              : "bg-surface-container-lowest hover:bg-surface-bright"
+          ]}
+        >
+          <div class="absolute right-6 top-6">
+            <span class:list={[
+              "material-symbols-outlined text-[1.7rem] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1",
+              resource.emphasis === "primary" ? "text-on-primary-container" : "text-primary"
+            ]}>
+              {resource.emphasis === "primary" ? "login" : ["arrow_outward", "login", "corporate_fare"][index]}
+            </span>
+          </div>
+          <div class="relative z-10">
+            <span class:list={[
+              "material-symbols-outlined mb-4 text-[1.45rem]",
+              resource.emphasis === "primary" ? "" : "text-primary"
+            ]} style="font-variation-settings: 'FILL' 1;">
+              {["school", "vpn_key", "account_balance"][index]}
+            </span>
+            <h3 class="mb-2 font-headline text-2xl leading-tight font-bold">
+              {resource.title}
+            </h3>
+            <p class:list={[
+              "text-[0.78rem] leading-relaxed",
+              resource.emphasis === "primary" ? "text-on-primary-container/80" : "text-on-surface-variant"
+            ]}>
+              {resource.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </section>
+
+    <section class="grid grid-cols-1 items-start gap-10 md:grid-cols-12">
+      <div class="md:col-span-5 md:col-start-2">
+        <div class="mb-8 inline-block rounded-full bg-surface-container-highest px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary font-headline">
+          Content Governance
+        </div>
+        <h2 class="mb-6 font-headline text-4xl font-bold text-on-surface">Access Logic</h2>
+        <p class="mb-5 max-w-[24rem] text-sm leading-7 text-on-surface-variant">{resourcesAccessLogic.publicSafe}</p>
+        <div class="max-w-[18rem] rounded-2xl bg-surface-container-low p-6">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined mt-1 text-primary">info</span>
+            <div>
+              <h4 class="mb-2 font-headline font-bold text-on-surface">Public Repository</h4>
+              <p class="text-[0.78rem] leading-relaxed text-on-surface-variant">
+                Includes reading lists, ethical guidelines, and core learning objectives available for open
+                scholarship.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 md:col-span-5 md:col-start-7 md:mt-16">
+        <div class="relative max-w-[25rem] overflow-hidden rounded-2xl border-l-4 border-primary bg-white/60 p-7 shadow-lg backdrop-blur-xl">
+          <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary/5 blur-3xl"></div>
+          <h3 class="mb-6 flex items-center gap-3 font-headline text-2xl font-bold text-primary">
+            <span class="material-symbols-outlined">lock</span>
+            Exclusive to Moodle
+          </h3>
+          <ul class="space-y-4">
+            {resourcesAccessLogic.privateOnly.map((item) => (
+              <li class="flex items-center gap-4">
+                <span class="h-1.5 w-1.5 rounded-full bg-primary"></span>
+                <span class="text-[0.82rem] font-medium leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8 border-t border-outline-variant/30 pt-6 text-xs italic leading-relaxed text-on-surface-variant">
+            {resourcesAccessLogic.note}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative mt-32 h-[400px] overflow-hidden rounded-3xl">
+      <img class="h-full w-full object-cover" src={resourceBanner.imageSrc} alt="TUM building placeholder visual" />
+      <div class="absolute inset-0 flex items-center bg-gradient-to-r from-primary/80 to-transparent p-12 md:p-20">
+        <div class="max-w-md">
+          <h2 class="mb-4 font-headline text-3xl font-bold text-white">{resourceBanner.title}</h2>
+          <p class="leading-relaxed text-white/80">{resourceBanner.body}</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

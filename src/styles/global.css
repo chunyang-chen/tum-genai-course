@@ -1,0 +1,261 @@
+@import "tailwindcss";
+
+@theme {
+  --color-tertiary: #094e8f;
+  --color-error: #ba1a1a;
+  --color-on-tertiary-fixed-variant: #004786;
+  --color-on-primary-fixed-variant: #004787;
+  --color-tertiary-fixed: #d4e3ff;
+  --color-on-secondary-fixed-variant: #474747;
+  --color-outline-variant: #c1c6d4;
+  --color-surface-tint: #005eb1;
+  --color-on-surface: #1b1c1c;
+  --color-secondary-container: #e4e2e1;
+  --color-outline: #727783;
+  --color-on-background: #1b1c1c;
+  --color-error-container: #ffdad6;
+  --color-tertiary-container: #3066a9;
+  --color-primary-container: #0065bd;
+  --color-surface-container: #f0eded;
+  --color-on-primary-fixed: #001c3b;
+  --color-secondary-fixed: #e4e2e1;
+  --color-on-error: #ffffff;
+  --color-on-tertiary: #ffffff;
+  --color-on-secondary-container: #656464;
+  --color-background: #fbf9f8;
+  --color-on-error-container: #93000a;
+  --color-inverse-primary: #a7c8ff;
+  --color-surface-bright: #fbf9f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-primary-fixed-dim: #a7c8ff;
+  --color-on-primary: #ffffff;
+  --color-surface-container-high: #eae8e7;
+  --color-inverse-on-surface: #f3f0f0;
+  --color-secondary: #5f5e5e;
+  --color-secondary-fixed-dim: #c8c6c6;
+  --color-on-surface-variant: #414752;
+  --color-inverse-surface: #303030;
+  --color-surface: #fbf9f8;
+  --color-on-tertiary-fixed: #001c3a;
+  --color-on-tertiary-container: #d6e4ff;
+  --color-on-primary-container: #d6e4ff;
+  --color-surface-container-low: #f6f3f2;
+  --color-tertiary-fixed-dim: #a6c8ff;
+  --color-surface-dim: #dcd9d9;
+  --color-primary: #004d93;
+  --color-surface-variant: #e4e2e1;
+  --color-surface-container-highest: #e4e2e1;
+  --color-on-secondary: #ffffff;
+  --color-primary-fixed: #d5e3ff;
+  --color-on-secondary-fixed: #1b1c1c;
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-width: 320px;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-style: normal;
+  line-height: 1;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 100;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  color: #1b1c1c;
+  box-shadow: 0 14px 30px rgba(27, 28, 28, 0.08);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.glass-nav {
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.ai-module {
+  background: rgba(251, 249, 248, 0.6);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(0, 77, 147, 0.05);
+}
+
+.editorial-shadow {
+  box-shadow: 0 18px 44px rgba(27, 28, 28, 0.06);
+}
+
+.ambient-card-hover {
+  transition: transform 240ms ease, background-color 240ms ease, box-shadow 240ms ease;
+}
+
+.ambient-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(27, 28, 28, 0.06);
+}
+
+.placeholder-image {
+  background:
+    radial-gradient(circle at 28% 28%, rgba(255, 255, 255, 0.24), transparent 28%),
+    radial-gradient(circle at 72% 26%, rgba(255, 255, 255, 0.16), transparent 24%),
+    linear-gradient(135deg, rgba(0, 77, 147, 0.94), rgba(9, 78, 143, 0.82));
+}
+
+.placeholder-portrait {
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.22), transparent 20%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42)),
+    linear-gradient(135deg, #445467, #1e293b 58%, #111827);
+}
+
+.placeholder-portrait::after {
+  content: attr(data-initials);
+  position: absolute;
+  inset: auto 1.5rem 1.2rem auto;
+  border-radius: 999px;
+  background: rgba(0, 77, 147, 0.9);
+  padding: 0.3rem 0.7rem;
+  color: white;
+  font-family: Manrope, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.placeholder-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 28%),
+    linear-gradient(135deg, rgba(0, 77, 147, 0.94), rgba(9, 78, 143, 0.78));
+  color: white;
+  font-family: Manrope, sans-serif;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.placeholder-soft {
+  background:
+    linear-gradient(135deg, rgba(0, 77, 147, 0.12), rgba(9, 78, 143, 0.06)),
+    #f6f3f2;
+}
+
+.curriculum-line::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  transform: translateX(-0.5px);
+  background: linear-gradient(to bottom, rgba(193, 198, 212, 0), rgba(193, 198, 212, 0.65) 10%, rgba(193, 198, 212, 0.65) 90%, rgba(193, 198, 212, 0));
+}
+
+.home-orb {
+  pointer-events: none;
+}
+
+.feedback-stage__viewport {
+  position: relative;
+  min-height: 58rem;
+}
+
+.feedback-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(1rem) scale(0.985);
+  transition:
+    opacity 420ms ease,
+    transform 420ms ease;
+}
+
+.feedback-page.is-active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.feedback-quote-card {
+  position: relative;
+  min-height: 14rem;
+}
+
+.feedback-dot {
+  height: 0.75rem;
+  width: 0.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(114, 119, 131, 0.35);
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    width 220ms ease;
+}
+
+.feedback-dot.is-active {
+  width: 2.25rem;
+  background: #004d93;
+}
+
+@media (min-width: 768px) {
+  .feedback-stage__viewport {
+    min-height: 25rem;
+  }
+
+  .feedback-page {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .curriculum-line::before {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  body: string;
+  icon?: string;
+  emphasis?: "default" | "primary" | "plain";
+}
+
+const { eyebrow, title, body, icon, emphasis = "default" } = Astro.props;
+---
+
+<article class:list={["info-tile", `info-tile--${emphasis}`]}>
+  {icon && (
+    <span class="info-tile__icon material-symbols-outlined" aria-hidden="true">
+      {icon}
+    </span>
+  )}
+  {eyebrow && <p class="info-tile__eyebrow">{eyebrow}</p>}
+  <h3>{title}</h3>
+  <p>{body}</p>
+</article>

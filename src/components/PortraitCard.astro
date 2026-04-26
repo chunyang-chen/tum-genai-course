@@ -1,0 +1,51 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  body: string;
+  note?: string;
+  imageSrc?: string;
+  initials: string;
+  placeholder?: boolean;
+  offset?: boolean;
+}
+
+const { eyebrow, title, subtitle, body, note, imageSrc, initials, placeholder = false, offset = false } = Astro.props;
+---
+
+<article
+  class:list={[
+    "group overflow-hidden rounded-xl bg-surface-container-lowest transition-all duration-300 hover:bg-surface-bright",
+    offset && "lg:mt-12"
+  ]}
+>
+  <div class="relative aspect-[4/5] overflow-hidden">
+    {imageSrc ? (
+      <img
+        src={imageSrc}
+        alt={placeholder ? `${title} avatar placeholder` : `Portrait of ${title}`}
+        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    ) : (
+      <div class="placeholder-portrait relative h-full w-full" data-initials={initials}></div>
+    )}
+    <div class="absolute bottom-4 left-4">
+      <span class="rounded-full bg-primary-container/90 px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-primary-container backdrop-blur-md">
+        {eyebrow}
+      </span>
+    </div>
+  </div>
+
+  <div class="p-8">
+    <h3 class="mb-2 font-headline text-2xl font-bold text-on-surface">{title}</h3>
+    {subtitle && <p class="mb-4 text-sm font-medium uppercase tracking-wide text-primary">{subtitle}</p>}
+    <p class="mb-6 text-sm leading-relaxed text-on-surface-variant">{body}</p>
+    {note && (
+      <p class="flex items-center gap-2 text-sm font-semibold text-surface-tint">
+        {note}
+        <span class="material-symbols-outlined text-[18px]">link</span>
+      </p>
+    )}
+  </div>
+</article>

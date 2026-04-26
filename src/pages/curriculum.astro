@@ -1,0 +1,256 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import {
+  curriculumCapstone,
+  curriculumCheckpoint,
+  curriculumPhilosophy,
+  curriculumPrerequisites,
+  roadmapEntries,
+  siteMeta
+} from "../content/site";
+
+const [introEntry, transformerEntry, agentsEntry, llmEntry, diffusionEntry, finalEntry] = roadmapEntries;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `${siteMeta.title} curriculum`,
+  description: "Editorial roadmap and indicative course structure for the TUM generative AI course.",
+  url: new URL("/curriculum", Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title="Curriculum"
+  description="Editorial roadmap and indicative course structure for Foundations and Application of Generative AI."
+  path="/curriculum"
+  breadcrumbs={[{ name: "Curriculum", href: "/curriculum" }]}
+  schema={schema}
+>
+  <main class="mx-auto max-w-7xl px-6 pb-24 pt-16 md:pt-20">
+    <section class="relative overflow-hidden bg-surface py-12 min-[560px]:py-16">
+      <div class="grid grid-cols-1 gap-8 min-[560px]:grid-cols-2 min-[560px]:items-start">
+        <div class="min-[560px]:pr-8">
+          <div class="mb-6 inline-flex rounded-full bg-surface-container-highest px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary font-headline">
+            Course syllabus
+          </div>
+          <h1 class="mb-6 font-headline text-5xl font-extrabold tracking-tight text-on-surface md:text-7xl">
+            Academic Roadmap.
+          </h1>
+          <p class="max-w-xl text-lg leading-relaxed text-on-surface-variant">
+            A public-facing deep dive from theoretical foundations to industrial implementation,
+            bridging academic rigor and generative frontiers.
+          </p>
+        </div>
+
+        <aside class="rounded-2xl bg-surface-container-low p-6 min-[560px]:ml-auto min-[560px]:max-w-sm">
+          <div class="mb-4 flex items-start gap-3">
+            <span class="material-symbols-outlined text-primary">terminal</span>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-secondary">Prerequisites</p>
+              <p class="mt-2 text-sm leading-relaxed text-on-surface-variant">
+                {curriculumPrerequisites.join(" ")}
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="relative curriculum-line pb-10">
+      <div class="grid grid-cols-1 gap-y-14 min-[560px]:grid-cols-2">
+        <div class="min-[560px]:pr-8">
+          <div class="mx-auto max-w-md py-8 text-center min-[560px]:mr-0 min-[560px]:ml-auto min-[560px]:text-right">
+            <p class="mb-4 inline-flex rounded bg-surface-container-high px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-surface">
+              {introEntry.eyebrow}
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight">{introEntry.title}</h2>
+            <p class="mt-4 text-on-surface-variant">{introEntry.summary}</p>
+          </div>
+        </div>
+        <div class="min-[560px]:pl-8">
+          <article class="max-w-md rounded-2xl bg-surface-container-lowest p-6 shadow-sm">
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="rounded-full bg-surface-container-high px-3 py-1 text-[11px] font-medium">Probability</span>
+              <span class="rounded-full bg-surface-container-high px-3 py-1 text-[11px] font-medium">Latest Spaces</span>
+            </div>
+            <ul class="space-y-3 text-sm text-on-surface-variant">
+              {introEntry.notes.map((note) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div class="order-4 min-[560px]:order-3 min-[560px]:pr-8">
+          <article class="max-w-md rounded-2xl bg-surface-container-lowest p-6 shadow-sm min-[560px]:ml-auto">
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="rounded-full bg-primary-fixed px-3 py-1 text-[11px] font-medium text-primary">Attention Mechanisms</span>
+              <span class="rounded-full bg-primary-fixed px-3 py-1 text-[11px] font-medium text-primary">Scalability</span>
+            </div>
+            <ul class="space-y-3 text-sm text-on-surface-variant">
+              {transformerEntry.notes.map((note) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+        <div class="order-3 min-[560px]:order-4 min-[560px]:pl-8">
+          <div class="mx-auto max-w-md py-8 min-[560px]:text-left">
+            <p class="mb-4 inline-flex rounded bg-surface-container-high px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-surface">
+              {transformerEntry.eyebrow}
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight">{transformerEntry.title}</h2>
+            <p class="mt-4 text-on-surface-variant">{transformerEntry.summary}</p>
+          </div>
+        </div>
+      </div>
+
+      <article class="my-12 overflow-hidden rounded-2xl bg-primary text-on-primary shadow-lg">
+        <div class="grid grid-cols-1 items-center gap-8 p-8 min-[560px]:grid-cols-[1.5fr_220px]">
+          <div>
+            <p class="mb-3 text-xs font-bold uppercase tracking-widest text-primary-fixed">Industrial insight</p>
+            <h3 class="text-4xl font-bold tracking-tight">{agentsEntry.title}</h3>
+            <p class="mt-4 max-w-2xl leading-relaxed text-white/88">{agentsEntry.summary}</p>
+          </div>
+          <div class="placeholder-image aspect-square rounded-lg"></div>
+        </div>
+      </article>
+
+      <div class="grid grid-cols-1 gap-y-14 min-[560px]:grid-cols-2">
+        <div class="min-[560px]:pr-8">
+          <div class="mx-auto max-w-md py-8 text-center min-[560px]:mr-0 min-[560px]:ml-auto min-[560px]:text-right">
+            <p class="mb-4 inline-flex rounded bg-surface-container-high px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-surface">
+              {llmEntry.eyebrow}
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight">{llmEntry.title}</h2>
+            <p class="mt-4 text-on-surface-variant">{llmEntry.summary}</p>
+          </div>
+        </div>
+        <div class="min-[560px]:pl-8">
+          <article class="max-w-md rounded-2xl bg-surface-container-lowest p-6 shadow-sm">
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="rounded-full bg-surface-container-high px-3 py-1 text-[11px] font-medium">Fine-tuning</span>
+              <span class="rounded-full bg-surface-container-high px-3 py-1 text-[11px] font-medium">Alignment</span>
+            </div>
+            <ul class="space-y-3 text-sm text-on-surface-variant">
+              {llmEntry.notes.map((note) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div class="order-4 min-[560px]:order-3 min-[560px]:pr-8">
+          <article class="max-w-md rounded-2xl bg-surface-container-lowest p-6 shadow-sm min-[560px]:ml-auto">
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="rounded-full bg-primary-fixed px-3 py-1 text-[11px] font-medium text-primary">Diffusion</span>
+              <span class="rounded-full bg-primary-fixed px-3 py-1 text-[11px] font-medium text-primary">Vision</span>
+            </div>
+            <ul class="space-y-3 text-sm text-on-surface-variant">
+              {diffusionEntry.notes.map((note) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+        <div class="order-3 min-[560px]:order-4 min-[560px]:pl-8">
+          <div class="mx-auto max-w-md py-8 min-[560px]:text-left">
+            <p class="mb-4 inline-flex rounded bg-surface-container-high px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-surface">
+              {diffusionEntry.eyebrow}
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight">{diffusionEntry.title}</h2>
+            <p class="mt-4 text-on-surface-variant">{diffusionEntry.summary}</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="border-y border-outline-variant/20 py-12 text-center">
+        <p class="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-primary">{curriculumCheckpoint.eyebrow}</p>
+        <h2 class="text-4xl font-bold tracking-tight">{curriculumCheckpoint.title}</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-on-surface-variant">{curriculumCheckpoint.body}</p>
+      </section>
+
+      <section class="mx-auto my-16 max-w-4xl rounded-2xl bg-white/70 p-6 shadow-lg backdrop-blur-xl min-[560px]:p-8">
+        <div class="flex items-start gap-4">
+          <div class="rounded-xl bg-primary px-4 py-3 text-on-primary">
+            <span class="material-symbols-outlined">auto_awesome</span>
+          </div>
+          <div>
+            <p class="mb-2 text-sm font-bold text-primary">{curriculumPhilosophy.title}</p>
+            <blockquote class="text-lg italic leading-relaxed text-on-surface-variant">
+              {curriculumPhilosophy.body}
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid grid-cols-1 gap-y-14 min-[560px]:grid-cols-2">
+        <div class="min-[560px]:pr-8">
+          <div class="mx-auto max-w-md py-8 text-center min-[560px]:mr-0 min-[560px]:ml-auto min-[560px]:text-right">
+            <p class="mb-4 inline-flex rounded bg-surface-container-high px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-surface">
+              {finalEntry.eyebrow}
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight">{finalEntry.title}</h2>
+            <p class="mt-4 text-on-surface-variant">{finalEntry.summary}</p>
+          </div>
+        </div>
+        <div class="min-[560px]:pl-8">
+          <article class="max-w-md rounded-2xl bg-surface-container-lowest p-6 shadow-sm">
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="rounded-full bg-surface-container-high px-3 py-1 text-[11px] font-medium">RAG systems</span>
+              <span class="rounded-full bg-surface-container-high px-3 py-1 text-[11px] font-medium">Agentic reasoning</span>
+            </div>
+            <ul class="space-y-3 text-sm text-on-surface-variant">
+              {finalEntry.notes.map((note) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span>{note}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+
+        <div class="order-4 min-[560px]:order-3 min-[560px]:pr-8">
+          <article class="max-w-md rounded-2xl bg-surface-container-high p-6 shadow-sm min-[560px]:ml-auto">
+            <p class="mb-2 text-sm font-bold text-primary">{curriculumCapstone.eyebrow}</p>
+            <h3 class="text-3xl font-bold tracking-tight">{curriculumCapstone.title}</h3>
+            <ul class="mt-4 space-y-3 text-sm text-on-surface-variant">
+              {curriculumCapstone.bullets.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="mt-1 h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
+        <div class="order-3 min-[560px]:order-4 min-[560px]:pl-8">
+          <div class="mx-auto max-w-md py-8 min-[560px]:text-left">
+            <p class="mb-4 inline-flex rounded bg-primary px-3 py-1 text-xs font-bold uppercase tracking-widest text-on-primary">
+              Finale
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight">Final presentation</h2>
+            <p class="mt-4 text-on-surface-variant">
+              Students showcase their end-to-end generative AI systems through demos, technical framing,
+              and deployment reflection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
