@@ -596,7 +596,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches human-LLM collaboration and development tools for LLM-powered applications at the Chair of Software Engineering & AI.",
     initials: "LF",
-    imageSrc: "/images/team/ludwig-felder.webp",
+    imageSrc: "public/images/team/ludwig-felder.webp",
     mediaVariant: "portrait"
   },
   {
@@ -606,7 +606,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
     initials: "SH",
-    imageSrc: "/images/team/shen-hu.webp",
+    imageSrc: "public/images/team/shen-hu.webp",
     mediaVariant: "portrait"
   },
   {
@@ -616,7 +616,97 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches intelligent software engineering and query refinement as part of the Software Engineering & AI chair.",
     initials: "YM",
-    imageSrc: "/images/team/yuetian-mao.webp",
+    imageSrc: "public/images/team/yuetian-mao.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "yuetian-mao",
+    semesterId: "ss-2025",
+    name: "Yuetian Mao",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Researches intelligent software engineering and query refinement as part of the Software Engineering & AI chair.",
+    initials: "YM",
+    imageSrc: "public/images/team/yuetian-mao.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "zhen-tao",
+    semesterId: "ss-2025",
+    name: "Zhen Tao",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Researches AI compliance and usable privacy as part of the Software Engineering & AI chair.",
+    initials: "ZT",
+    imageSrc: "public/images/team/zhen-tao.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "shen-hu",
+    semesterId: "ws-2025-26",
+    name: "Shen Hu",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
+    initials: "SH",
+    imageSrc: "public/images/team/shen-hu.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "zhen-tao",
+    semesterId: "ws-2025-26",
+    name: "Zhen Tao",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Researches AI compliance and usable privacy as part of the Software Engineering & AI chair.",
+    initials: "ZT",
+    imageSrc: "public/images/team/zhen-tao.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "emilija-gjorgjevska",
+    semesterId: "ss-2026",
+    name: "Emilija Gjorgjevska",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Generative Engine Optimization (GEO).",
+    initials: "EG",
+    imageSrc: "public/images/team/emilija-gjorgjevska.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "christoph-timmermann",
+    semesterId: "ss-2026",
+    name: "Christoph Timmermann",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Multimodal learning.",
+    initials: "CT",
+    imageSrc: "public/images/team/christoph-timmermann.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "zixu-wang",
+    semesterId: "ss-2026",
+    name: "Zixu Wang",
+    role: "External Doctoral Candidate",
+    bio: "AI for automotive software development.",
+    initials: "ZW",
+    imageSrc: "public/images/team/zixu-wang.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "shen-hu",
+    semesterId: "ss-2024",
+    name: "Shen Hu",
+    role: "Doctoral Candidate & Research Associate",
+    bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
+    initials: "SH",
+    imageSrc: "public/images/team/shen-hu.webp",
+    mediaVariant: "portrait"
+  },
+  {
+    id: "han-wang",
+    semesterId: "ss-2024",
+    name: "Han Wang",
+    role: "Visiting Researcher",
+    bio: "Unit Testing for Software Engineering and AI.",
+    initials: "HW",
+    imageSrc: "public/images/team/han-wang.webp",
     mediaVariant: "portrait"
   }
 ];
@@ -630,82 +720,124 @@ export const projectArchive: SemesterProject[] = [
     technique: "LLM guidance, interview simulation, resume tailoring",
     summary:
       "A career-preparation assistant that supports CV refinement, job-fit analysis, interview practice, and feedback loops for students approaching internships or graduate roles.",
-    themes: ["Semantic search", "Career guidance"],
+    themes: ["Semantic Search", "Career Guidance"],
     initials: "CP",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCPTrIJMks_gOI7eS76kxgNq7JwvCF6eNYxmmitBrJ5sMwaE9qPnxatlERHubVBLY8FyPcQ0-SLg1J6vWh9OYkfaGRX3o8P7VNlw6x6quEBJiWecNcnlZFGbMtLT19BsNb4OO4vzQShSWFoYJ63FnyncuroJasShYiocksd9MC4JxgDwZXQETN0MhGrspuTD8aK8AjCcm0SkWClp4Q2rq8Goee_lmlJZHoiWjkYyDO96VrZ6CMQ_QyWcuQfAHb6SenFuzcnTyn9G4o",
+      "public/projects/career-prep-ai.png",
     mediaVariant: "abstract"
   },
-  {
-    id: "smart-lifestyle-assistant",
-    semesterId: "ws-2025-26",
-    title: "Smart Lifestyle Assistant",
-    domain: "Personal wellness",
-    technique: "Planning assistant, personalized recommendations",
-    summary:
-      "A personal assistant concept that helps students coordinate meals, commuting, scheduling, fitness, and day-to-day decision making through conversational support.",
-    themes: ["Behavior modeling", "Lifestyle planning"],
-    initials: "SL",
-    imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAfTzDVialyYDwYco9cn2wguBT_ILhgNABNmgT6iUd7tU-AeqLBwhx02zEovMHzvz8LUAE2l136OKMyMh8yvbpbwrwAmPJ0MqvNXR9MgZcDjOzVMf8fmPR6OWJIrU7IOCkwpUK-pdA-beMMWT2BP_i_aqd3VWwTBNxSycDFq-2goh83JtTXbZ1Q3yCzJts6pXkpKRuTJuMXTjTUOJFkv-fYMB2JGkJKxF4anFX62n5yAbB0x-jr42eBKauNDGbKYBxoeAahDx86L2c",
-    mediaVariant: "abstract"
-  },
+  // {
+  //   id: "smart-lifestyle-assistant",
+  //   semesterId: "ws-2025-26",
+  //   title: "Smart Lifestyle Assistant",
+  //   domain: "Personal wellness",
+  //   technique: "Planning assistant, personalized recommendations",
+  //   summary:
+  //     "A personal assistant concept that helps students coordinate meals, commuting, scheduling, fitness, and day-to-day decision making through conversational support.",
+  //   themes: ["Behavior modeling", "Lifestyle planning"],
+  //   initials: "SL",
+  //   imageSrc:
+  //     "https://lh3.googleusercontent.com/aida-public/AB6AXuAfTzDVialyYDwYco9cn2wguBT_ILhgNABNmgT6iUd7tU-AeqLBwhx02zEovMHzvz8LUAE2l136OKMyMh8yvbpbwrwAmPJ0MqvNXR9MgZcDjOzVMf8fmPR6OWJIrU7IOCkwpUK-pdA-beMMWT2BP_i_aqd3VWwTBNxSycDFq-2goh83JtTXbZ1Q3yCzJts6pXkpKRuTJuMXTjTUOJFkv-fYMB2JGkJKxF4anFX62n5yAbB0x-jr42eBKauNDGbKYBxoeAahDx86L2c",
+  //   mediaVariant: "abstract"
+  // },
   {
     id: "roesberg-vision-ai",
     semesterId: "ws-2025-26",
-    title: "Roesberg Vision AI",
+    title: "Rösberg Vision AI",
     domain: "Industrial engineering",
     technique: "Multimodal interaction, vision-language assistance",
     summary:
-      "A multimodal support concept for industrial use, combining chat, voice, and visual signals to guide inspections and improve information access in operational settings.",
-    themes: ["GPT-4o", "Computer vision"],
+      "A multimodal support concept for industrial use for Rösberg Engineering GmbH, combining chat, voice, and visual signals to guide inspections and improve information access in operational settings.",
+    themes: ["Voice & Vision Copilot"],
     initials: "RV",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDdMYDIxcCncrl9BhqM90pdflI6JHOIUjkDuBLH_jD9mvedMcKYT1nkz4LElnj4WK-Z0G9SJSq4KYc08K1ObnJBcBg8tYADnz7oRfshR5z3mi53oUsaQmW1_7vqIPmD2cvw7py8hDiF9nMXHLYqqKaeije8zIXq4-Dgc8d7PKfhNylSjSDp0nUEBtFejV4PHAF_ZxMFmb3p_hP-XpIOWHunPmCf5lpFCb60YAoZeDDF3RQy8w5hzVfXg_87O0IrMWHK9IIpuo-VXr4",
+      "public/projects/ROSBERG.png",
     mediaVariant: "abstract"
   },
   {
-    id: "arip",
+    id: "kako-ai",
     semesterId: "ws-2025-26",
-    title: "ARIP",
-    domain: "Academic research",
-    technique: "Retrieval and matching support",
+    title: "KakoAI",
+    domain: "Industrial engineering",
+    technique: "LLM-powered agent",
     summary:
-      "An academic recognition portal concept that uses AI support to compare courses, streamline transfer-credit analysis, and improve access to recognition guidance.",
-    themes: ["Graph DB", "Insight mapping"],
-    initials: "AR",
+      "An intelligent assistant developed for KAKO Elektro GmbH that automates critical workflows in cable confection manufacturing.",
+    themes: ["LLM-powered Agent"],
+    initials: "KK",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuChgilB5uh9DBC02TRGwU0yvdIjFn7rYLvGUkDqvqPLQmpBpnTtyDn0jWUX2I4I_gW6wOBVn_Nb5dJuBeEX5eYM4lpx87o1NXZ_6JagAtflimITz5QhmSIdTTlxEannDFHniiN3igMpfTW4rDlTMXzoxLUAHpQiLFYrh6yrmb0CJlr4DDZHz8kWjj0GhrWODzfcR_rfj4KYpL-7EmMi0aJKIj0rHE3SEXX8cvG-n_nJmQP9sIe2Xgul4Yhj4jnPTlHSyfUmCgE4RoU",
+      "public/projects/KAKO.png",
     mediaVariant: "abstract"
   },
   {
-    id: "teduco",
+    id: "nutri-ai",
     semesterId: "ws-2025-26",
-    title: "Teduco",
-    domain: "EdTech",
-    technique: "Conversational guidance system",
+    title: "Nutri-AI",
+    domain: "Lifestyle Assistant",
+    technique: "Image understanding",
     summary:
-      "A generative AI assistant for international education consultancy, designed to help prospective students navigate program options, processes, and common questions.",
-    themes: ["Prompt engineering", "STEM education"],
-    initials: "TE",
+      "Your smart companion for a healthier lifestyle. Whether you are looking to lose weight, build muscle, or simply maintain a balanced diet, Nutri-AI makes tracking your nutrition effortless and accurate",
+    themes: ["Image Understanding"],
+    initials: "NU",
     imageSrc:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBVo4Z7YSVeG80KYW7IYFezUFlW-SFFyDqNkqRZoiQFcTGBf3vhhxO1Clj0qD6SppiPFxb2_sCzPbj3KiCBkZqUwF45i32Jg6ehrtGLeojNdig1Kb4fvSl7GEY8GG1q83u2mFfPiiCTsvXDJnjI4O4S0ZycR4bl-TX8AHbI_AxDT21CBxjVIy2bqV4g4eZb6rm6I3r83FzGv9GoV3MXvP2VLCY8mrb5-32Chsy3-LJ4jpt0tvFgS1fN_jaowxCb_-UvYeiCXnAwbFk",
+      "public/projects/group4.png",
     mediaVariant: "abstract"
   },
   {
-    id: "placeholder-next-cycle",
+    id: "fashion-ai",
     semesterId: "ws-2025-26",
-    title: "Next cycle commencing",
-    domain: "Upcoming project phase",
-    technique: "Applications open soon",
+    title: "AI Fashion Stylist",
+    domain: "Fashion",
+    technique: "Multimodal classification",
     summary:
-      "Additional project showcases can be added here in future semesters. This placeholder mirrors the stitched gallery composition without inventing a new project.",
-    themes: ["Placeholder", "Future update"],
-    initials: "+",
-    isPlaceholder: true,
-    placeholderLabel: "Placeholder",
-    mediaVariant: "initials"
+      "A web-based application that helps you create personalized outfit suggestions using artificial intelligence. You can build a digital version of your wardrobe, chat with an AI stylist and visualize complete outfits on yourself.",
+    themes: ["Personalized Outfit Suggestions"],
+    initials: "FA",
+    imageSrc:
+      "public/projects/AI-Fashion-Stylist.png",
+    mediaVariant: "abstract"
   }
+  // {
+  //   id: "arip",
+  //   semesterId: "ws-2025-26",
+  //   title: "ARIP",
+  //   domain: "Academic research",
+  //   technique: "Retrieval and matching support",
+  //   summary:
+  //     "An academic recognition portal concept that uses AI support to compare courses, streamline transfer-credit analysis, and improve access to recognition guidance.",
+  //   themes: ["Graph DB", "Insight mapping"],
+  //   initials: "AR",
+  //   imageSrc:
+  //     "https://lh3.googleusercontent.com/aida-public/AB6AXuChgilB5uh9DBC02TRGwU0yvdIjFn7rYLvGUkDqvqPLQmpBpnTtyDn0jWUX2I4I_gW6wOBVn_Nb5dJuBeEX5eYM4lpx87o1NXZ_6JagAtflimITz5QhmSIdTTlxEannDFHniiN3igMpfTW4rDlTMXzoxLUAHpQiLFYrh6yrmb0CJlr4DDZHz8kWjj0GhrWODzfcR_rfj4KYpL-7EmMi0aJKIj0rHE3SEXX8cvG-n_nJmQP9sIe2Xgul4Yhj4jnPTlHSyfUmCgE4RoU",
+  //   mediaVariant: "abstract"
+  // },
+  // {
+  //   id: "teduco",
+  //   semesterId: "ws-2025-26",
+  //   title: "Teduco",
+  //   domain: "EdTech",
+  //   technique: "Conversational guidance system",
+  //   summary:
+  //     "A generative AI assistant for international education consultancy, designed to help prospective students navigate program options, processes, and common questions.",
+  //   themes: ["Prompt engineering", "STEM education"],
+  //   initials: "TE",
+  //   imageSrc:
+  //     "https://lh3.googleusercontent.com/aida-public/AB6AXuBVo4Z7YSVeG80KYW7IYFezUFlW-SFFyDqNkqRZoiQFcTGBf3vhhxO1Clj0qD6SppiPFxb2_sCzPbj3KiCBkZqUwF45i32Jg6ehrtGLeojNdig1Kb4fvSl7GEY8GG1q83u2mFfPiiCTsvXDJnjI4O4S0ZycR4bl-TX8AHbI_AxDT21CBxjVIy2bqV4g4eZb6rm6I3r83FzGv9GoV3MXvP2VLCY8mrb5-32Chsy3-LJ4jpt0tvFgS1fN_jaowxCb_-UvYeiCXnAwbFk",
+  //   mediaVariant: "abstract"
+  // },
+  // {
+  //   id: "placeholder-next-cycle",
+  //   semesterId: "ws-2025-26",
+  //   title: "Next cycle commencing",
+  //   domain: "Upcoming project phase",
+  //   technique: "Applications open soon",
+  //   summary:
+  //     "Additional project showcases can be added here in future semesters. This placeholder mirrors the stitched gallery composition without inventing a new project.",
+  //   themes: ["Placeholder", "Future update"],
+  //   initials: "+",
+  //   isPlaceholder: true,
+  //   placeholderLabel: "Placeholder",
+  //   mediaVariant: "initials"
+  // }
 ];
 
 export const projectLifecycle = [
@@ -812,7 +944,7 @@ export const showcaseMedia = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCijnf8rmQBmiwKQV2i2V96nJnk0WTGhroXbCi6DUxwUwKpw2wHFVH3zQimkGVGbjpT9zIaXBnmMQhwyeThpFHt3XW5641JxB3tROoujtTdSzay0OxGo-ErdSObzkrE_vwtsWCM_CjksxFuT7zT4TzDiKqZNZQj_TAOdee-opQyiHyp5p58oV27Rn-dGyWtIAAFz4HdXBeTnTb5cKB2Cp9fNrIsxxuxS_tKaGzd-E5Chq3Q1nbP4qfaHXJ2r9hZOij3mRnPUhBbTkg",
   projectHero:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuBQSEAkArouphBZMKyG-20kFAuco1iyyLgB5DUPNz8Klyqyso3pAnfr5cLRY0b6yuwazQJOjMjogEpohdIw9qg-pC9yTcUlr0nFlWH4UZfCvY3ZoZCeM7ieqve34o427syJPimb2CEhiRWLk3eqliAYLwBM5wIYdWkZZiOBsED5HaEd-K930iYjnL6sYUwlo5JOeWEPu7e8I1jUovrnTb1wnmSAxEWGR38zHireAD0hq8AbqwAONlgEnT2GZX9jS6chxM-_HmSvmS0",
-  leadPortrait: "/images/team/chunyang-chen.webp"
+  leadPortrait: "public/images/team/chunyang-chen.webp"
 } as const;
 
 export const homeFeedback = {
@@ -924,6 +1056,12 @@ export function getSemesterLectureSlots(semesterId: string) {
 
 export function getSemesterTutorSlots(semesterId: string) {
   const tutors = getSemesterTutors(semesterId).slice(0, 3);
+
+  // Don't add placeholders if there are 2 or more tutors
+  if (tutors.length >= 2) {
+    return tutors;
+  }
+
   const needed = 3 - tutors.length;
 
   if (needed <= 0) {

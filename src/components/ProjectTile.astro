@@ -29,17 +29,18 @@ const { eyebrow, title, body, tags, initials, imageSrc, placeholder = false } = 
     <>
       <div class="group relative mb-6 aspect-video cursor-pointer overflow-hidden rounded-lg bg-surface-container-low">
         {imageSrc ? (
-          <img src={imageSrc} alt={`${title} project placeholder visual`} class="h-full w-full object-cover grayscale opacity-80" />
+          <img src={imageSrc} alt={`${title} project placeholder visual`} class="h-full w-full object-cover" />
         ) : (
           <div class="placeholder-image relative flex h-full w-full items-center justify-center">
             <span class="font-headline text-5xl font-extrabold tracking-[0.2em] text-white/80">{initials}</span>
           </div>
         )}
-        <div class="absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity group-hover:bg-black/30">
+        <!-- Commented out dark overlay and play button -->
+        <!-- <div class="absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity group-hover:bg-black/30">
           <span class="material-symbols-outlined text-6xl text-white" style="font-variation-settings: 'FILL' 1;">
             play_circle
           </span>
-        </div>
+        </div> -->
       </div>
 
       <div class="px-2">
