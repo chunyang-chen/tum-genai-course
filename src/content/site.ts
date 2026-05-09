@@ -596,7 +596,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches human-LLM collaboration and development tools for LLM-powered applications at the Chair of Software Engineering & AI.",
     initials: "LF",
-    imageSrc: "public/images/team/ludwig-felder.webp",
+    imageSrc: "/images/team/ludwig-felder.webp",
     mediaVariant: "portrait"
   },
   {
@@ -606,7 +606,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
     initials: "SH",
-    imageSrc: "public/images/team/shen-hu.webp",
+    imageSrc: "/images/team/shen-hu.webp",
     mediaVariant: "portrait"
   },
   {
@@ -616,7 +616,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches intelligent software engineering and query refinement as part of the Software Engineering & AI chair.",
     initials: "YM",
-    imageSrc: "public/images/team/yuetian-mao.webp",
+    imageSrc: "/images/team/yuetian-mao.webp",
     mediaVariant: "portrait"
   },
   {
@@ -626,7 +626,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches intelligent software engineering and query refinement as part of the Software Engineering & AI chair.",
     initials: "YM",
-    imageSrc: "public/images/team/yuetian-mao.webp",
+    imageSrc: "/images/team/yuetian-mao.webp",
     mediaVariant: "portrait"
   },
   {
@@ -636,7 +636,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches AI compliance and usable privacy as part of the Software Engineering & AI chair.",
     initials: "ZT",
-    imageSrc: "public/images/team/zhen-tao.webp",
+    imageSrc: "/images/team/zhen-tao.webp",
     mediaVariant: "portrait"
   },
   {
@@ -646,7 +646,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
     initials: "SH",
-    imageSrc: "public/images/team/shen-hu.webp",
+    imageSrc: "/images/team/shen-hu.webp",
     mediaVariant: "portrait"
   },
   {
@@ -656,7 +656,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches AI compliance and usable privacy as part of the Software Engineering & AI chair.",
     initials: "ZT",
-    imageSrc: "public/images/team/zhen-tao.webp",
+    imageSrc: "/images/team/zhen-tao.webp",
     mediaVariant: "portrait"
   },
   {
@@ -666,7 +666,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Generative Engine Optimization (GEO).",
     initials: "EG",
-    imageSrc: "public/images/team/emilija-gjorgjevska.webp",
+    imageSrc: "/images/team/emilija-gjorgjevska.webp",
     mediaVariant: "portrait"
   },
   {
@@ -676,7 +676,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Multimodal learning.",
     initials: "CT",
-    imageSrc: "public/images/team/christoph-timmermann.webp",
+    imageSrc: "/images/team/christoph-timmermann.webp",
     mediaVariant: "portrait"
   },
   {
@@ -686,7 +686,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "External Doctoral Candidate",
     bio: "AI for automotive software development.",
     initials: "ZW",
-    imageSrc: "public/images/team/zixu-wang.webp",
+    imageSrc: "/images/team/zixu-wang.webp",
     mediaVariant: "portrait"
   },
   {
@@ -696,7 +696,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Doctoral Candidate & Research Associate",
     bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
     initials: "SH",
-    imageSrc: "public/images/team/shen-hu.webp",
+    imageSrc: "/images/team/shen-hu.webp",
     mediaVariant: "portrait"
   },
   {
@@ -706,7 +706,7 @@ export const tutorArchive: SemesterTutor[] = [
     role: "Visiting Researcher",
     bio: "Unit Testing for Software Engineering and AI.",
     initials: "HW",
-    imageSrc: "public/images/team/han-wang.webp",
+    imageSrc: "/images/team/han-wang.webp",
     mediaVariant: "portrait"
   }
 ];
@@ -944,7 +944,7 @@ export const showcaseMedia = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuCijnf8rmQBmiwKQV2i2V96nJnk0WTGhroXbCi6DUxwUwKpw2wHFVH3zQimkGVGbjpT9zIaXBnmMQhwyeThpFHt3XW5641JxB3tROoujtTdSzay0OxGo-ErdSObzkrE_vwtsWCM_CjksxFuT7zT4TzDiKqZNZQj_TAOdee-opQyiHyp5p58oV27Rn-dGyWtIAAFz4HdXBeTnTb5cKB2Cp9fNrIsxxuxS_tKaGzd-E5Chq3Q1nbP4qfaHXJ2r9hZOij3mRnPUhBbTkg",
   projectHero:
     "https://lh3.googleusercontent.com/aida-public/AB6AXuBQSEAkArouphBZMKyG-20kFAuco1iyyLgB5DUPNz8Klyqyso3pAnfr5cLRY0b6yuwazQJOjMjogEpohdIw9qg-pC9yTcUlr0nFlWH4UZfCvY3ZoZCeM7ieqve34o427syJPimb2CEhiRWLk3eqliAYLwBM5wIYdWkZZiOBsED5HaEd-K930iYjnL6sYUwlo5JOeWEPu7e8I1jUovrnTb1wnmSAxEWGR38zHireAD0hq8AbqwAONlgEnT2GZX9jS6chxM-_HmSvmS0",
-  leadPortrait: "public/images/team/chunyang-chen.webp"
+  leadPortrait: "/images/team/chunyang-chen.webp"
 } as const;
 
 export const homeFeedback = {
