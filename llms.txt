@@ -1,0 +1,19 @@
+# Foundations and Application of Generative AI
+
+Course code: CITHN2014
+Semester: Winter Semester 2025/26
+Institution: Technical University of Munich
+
+This is a public overview site for the course. It includes public-safe summaries of curriculum, projects, guest lectures, assessment, team information, and FAQ. It does not publish internal slides, assignments, or Moodle files.
+
+## Primary pages
+- Home: /
+- Curriculum: /curriculum
+- Insights: /insights
+- Projects: /projects
+- Team: /team
+- Resources: /resources
+
+## Official sources
+- TUM course page: https://campus.tum.de/tumonline/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/950841084?$ctx=lang=EN&$scrollTo=toc_overview
+- Moodle page: https://www.moodle.tum.de/course/view.php?id=111664
