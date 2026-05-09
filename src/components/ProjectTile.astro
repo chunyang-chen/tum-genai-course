@@ -1,4 +1,6 @@
 ---
+import { withBasePath } from "../utils/links";
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -10,6 +12,7 @@ interface Props {
 }
 
 const { eyebrow, title, body, tags, initials, imageSrc, placeholder = false } = Astro.props;
+const resolvedImageSrc = imageSrc ? withBasePath(imageSrc, import.meta.env.BASE_URL) : undefined;
 ---
 
 <article
@@ -28,8 +31,8 @@ const { eyebrow, title, body, tags, initials, imageSrc, placeholder = false } = 
   ) : (
     <>
       <div class="group relative mb-6 aspect-video cursor-pointer overflow-hidden rounded-lg bg-surface-container-low">
-        {imageSrc ? (
-          <img src={imageSrc} alt={`${title} project placeholder visual`} class="h-full w-full object-cover" />
+        {resolvedImageSrc ? (
+          <img src={resolvedImageSrc} alt={`${title} project placeholder visual`} class="h-full w-full object-cover" />
         ) : (
           <div class="placeholder-image relative flex h-full w-full items-center justify-center">
             <span class="font-headline text-5xl font-extrabold tracking-[0.2em] text-white/80">{initials}</span>

@@ -12,12 +12,13 @@ import {
   showcaseMedia,
   siteMeta
 } from "../content/site";
-import { isExternalUrl } from "../utils/links";
+import { isExternalUrl, withBasePath } from "../utils/links";
 
 const featuredProject = getFeaturedProject(currentSemester.id);
 const semesterLectures = getSemesterLectureSlots(latestInsightsSemesterId);
 const metricsMax = Math.max(...metricsHighlights.map((item) => item.value));
 const guestInsightsTwoUp = semesterLectures.length === 2;
+const getAssetUrl = (href: string) => withBasePath(href, import.meta.env.BASE_URL);
 
 const heroFacts = [
   ["Lecturer", siteMeta.lecturer],
@@ -181,7 +182,7 @@ const schema = {
             <article class="rounded-2xl bg-surface-container-low p-8 transition-transform hover:-translate-y-1">
               <div class="mb-6 h-16 w-16 overflow-hidden rounded-full bg-slate-300">
                 {lecture.imageSrc ? (
-                  <img class="h-full w-full object-cover" src={lecture.imageSrc} alt={`Portrait of ${lecture.speaker}`} />
+                  <img class="h-full w-full object-cover" src={getAssetUrl(lecture.imageSrc)} alt={`Portrait of ${lecture.speaker}`} />
                 ) : (
                   <div class="placeholder-avatar h-full w-full" aria-hidden="true">
                     <span>{lecture.initials}</span>
