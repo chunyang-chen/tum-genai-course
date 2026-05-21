@@ -8,11 +8,13 @@ interface Props {
   tags: string[];
   initials: string;
   imageSrc?: string;
+  videoSrc?: string;
   placeholder?: boolean;
 }
 
-const { eyebrow, title, body, tags, initials, imageSrc, placeholder = false } = Astro.props;
+const { eyebrow, title, body, tags, initials, imageSrc, videoSrc, placeholder = false } = Astro.props;
 const resolvedImageSrc = imageSrc ? withBasePath(imageSrc, import.meta.env.BASE_URL) : undefined;
+const resolvedVideoSrc = videoSrc ? withBasePath(videoSrc, import.meta.env.BASE_URL) : undefined;
 ---
 
 <article
@@ -31,19 +33,21 @@ const resolvedImageSrc = imageSrc ? withBasePath(imageSrc, import.meta.env.BASE_
   ) : (
     <>
       <div class="group relative mb-6 aspect-video cursor-pointer overflow-hidden rounded-lg bg-surface-container-low">
-        {resolvedImageSrc ? (
+        {resolvedVideoSrc ? (
+          <video
+            src={resolvedVideoSrc}
+            controls
+            playsinline
+            preload="metadata"
+            class="h-full w-full object-cover"
+          />
+        ) : resolvedImageSrc ? (
           <img src={resolvedImageSrc} alt={`${title} project placeholder visual`} class="h-full w-full object-cover" />
         ) : (
           <div class="placeholder-image relative flex h-full w-full items-center justify-center">
             <span class="font-headline text-5xl font-extrabold tracking-[0.2em] text-white/80">{initials}</span>
           </div>
         )}
-        <!-- Commented out dark overlay and play button -->
-        <!-- <div class="absolute inset-0 flex items-center justify-center bg-black/40 transition-opacity group-hover:bg-black/30">
-          <span class="material-symbols-outlined text-6xl text-white" style="font-variation-settings: 'FILL' 1;">
-            play_circle
-          </span>
-        </div> -->
       </div>
 
       <div class="px-2">
@@ -54,7 +58,7 @@ const resolvedImageSrc = imageSrc ? withBasePath(imageSrc, import.meta.env.BASE_
           {tags.map((tag, index) => (
             <>
               <span class="text-[11px] font-medium text-secondary">{tag}</span>
-              {index < tags.length - 1 && <span class="text-slate-300">•</span>}
+              {index < tags.length - 1 && <span class="text-[9px] font-bold text-outline-variant/60 select-none">·</span>}
             </>
           ))}
         </div>

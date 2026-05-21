@@ -40,6 +40,7 @@ export type SemesterTutor = {
   isPlaceholder?: boolean;
   placeholderLabel?: string;
   mediaVariant?: "portrait" | "abstract" | "initials";
+  isAdminTutor?: boolean;
 };
 
 export type SemesterProject = {
@@ -52,6 +53,7 @@ export type SemesterProject = {
   themes: string[];
   initials: string;
   imageSrc?: string;
+  videoSrc?: string;
   isPlaceholder?: boolean;
   placeholderLabel?: string;
   mediaVariant?: "portrait" | "abstract" | "initials";
@@ -71,6 +73,8 @@ export type ResourceLink = {
   description: string;
   href: string;
   emphasis?: "primary" | "default";
+  icon?: string;
+  actionIcon?: string;
 };
 
 export type ShowcaseTemplateId =
@@ -112,7 +116,7 @@ export const siteMeta = {
   title: "Foundations and Application of Generative AI",
   shortTitle: "GenAI Foundations",
   code: "CITHN2014",
-  semester: "Winter Semester 2025/26",
+  semester: "Summer Semester 2026",
   lecturer: "Prof. Dr. Chunyang Chen",
   language: "English",
   format: "Lecture",
@@ -123,8 +127,10 @@ export const siteMeta = {
   description:
     "Public course showcase for Foundations and Application of Generative AI (CITHN2014) at the Technical University of Munich.",
   officialUrl:
-    "https://campus.tum.de/tumonline/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/950841084?$ctx=lang=EN&$scrollTo=toc_overview",
-  moodleUrl: "https://www.moodle.tum.de/course/view.php?id=111664",
+    "https://campus.tum.de/tumonline/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/courses/950882292?$scrollTo=toc_overview",
+  registrationUrl:
+    "https://campus.tum.de/tumonline/ee/ui/ca2/app/desktop/#/slc.tm.cp/student/registrationProcedures/77720?$ctx=&courseId=950882292",
+  moodleUrl: "https://www.moodle.tum.de/course/view.php?id=119703",
   organizationUrl: "https://www.tum.de/en/",
   departmentUrl: "https://www.cit.tum.de/en/cit/home/",
   campusUrl: "https://nav.tum.de/en/campus/heilbronn",
@@ -207,7 +213,7 @@ export const semesters: SemesterSummary[] = [
     term: "Summer",
     year: "2025",
     visible: true,
-    highlight: "Archive placeholder for visual parity until verified content is added."
+    highlight: "Archive of student-led projects, industry guest insights, and foundation modules for the summer term."
   },
   {
     id: "ws-2025-26",
@@ -244,7 +250,7 @@ export const semesters: SemesterSummary[] = [
     term: "Winter",
     year: "2023/24",
     visible: true,
-    highlight: "Archive placeholder for visual parity until verified content is added."
+    highlight: "Archived course syllabus and outline framing the core foundations of large language models."
   }
 ];
 
@@ -428,12 +434,13 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2026",
     speaker: "Marcel Gauglitz",
     affiliation: "Audi",
-    topic: "Transformer architecture",
+    topic: "Transformer Architecture",
     summary:
       "Industry AI expert associated with Audi and transformer-based systems for engineering and automotive applications.",
     whyItMatters:
       "The session extends core model concepts into automotive and industrial deployment contexts.",
     initials: "MG",
+    imageSrc: "/images/guest-speakers/marcel-gauglitz.jpg",
     mediaVariant: "portrait"
   },
   {
@@ -441,7 +448,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2026",
     speaker: "Junjie Tang",
     affiliation: "AWS",
-    topic: "Enterprise AI agents",
+    topic: "Enterprise AI Agents",
     summary:
       "Principal consultant at AWS Professional Services focused on enterprise AI systems, generative AI, and agentic workflows.",
     whyItMatters:
@@ -455,7 +462,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ws-2025-26",
     speaker: "Pawan Kumar Goyal",
     affiliation: "appliedAI",
-    topic: "GenAI for engineering",
+    topic: "GenAI for Engineering",
     summary:
       "AI engineer and researcher at appliedAI focused on generative AI for engineering and industrial use cases.",
     whyItMatters:
@@ -469,7 +476,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ws-2025-26",
     speaker: "Zhenchang Xing",
     affiliation: "CSIRO",
-    topic: "AI coding and SE",
+    topic: "AI Coding and Software Engineering",
     summary:
       "Senior research scientist at CSIRO Data61 working on AI coding, software engineering, and knowledge-intensive developer systems.",
     whyItMatters:
@@ -482,13 +489,14 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     id: "kevin-jilg",
     semesterId: "ws-2024-25",
     speaker: "Kevin Jilg",
-    affiliation: "Industry guest",
-    topic: "GenAI in industry",
+    affiliation: "BLANC & FISCHER Corporate Services",
+    topic: "GenAI in Industry",
     summary:
       "Applied AI practitioner with enterprise delivery experience across industrial IT, data-driven products, and AI implementation.",
     whyItMatters:
       "The talk shows how generative AI ideas are shaped by delivery realities in enterprise environments.",
     initials: "KJ",
+    imageSrc: "/images/guest-speakers/kevin-jilg.jpg",
     mediaVariant: "portrait"
   },
   {
@@ -496,12 +504,13 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ws-2024-25",
     speaker: "Alexander Frömmgen",
     affiliation: "Google",
-    topic: "AI for software engineering",
+    topic: "AI for Software Engineering",
     summary:
       "Software engineering practitioner associated with Google and AI-enabled developer tooling in large-scale product environments.",
     whyItMatters:
       "The lecture grounds AI-assisted software engineering in production tooling and developer workflows.",
     initials: "AF",
+    imageSrc: "/images/guest-speakers/alexander-froemmgen.jpg",
     mediaVariant: "portrait"
   },
   {
@@ -515,6 +524,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     whyItMatters:
       "The session translates enterprise AI strategy into operational and product-facing use cases.",
     initials: "SE",
+    imageSrc: "/images/guest-speakers/silas-eyrich.jpg",
     mediaVariant: "portrait"
   },
   {
@@ -522,7 +532,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2024",
     speaker: "Timon Höfer",
     affiliation: "Porsche Digital",
-    topic: "Product-facing AI deployment",
+    topic: "Product-Facing AI Deployment",
     summary:
       "AI researcher and product-oriented practitioner at Porsche Digital working on LLM adoption and applied industrial AI workflows.",
     whyItMatters:
@@ -536,7 +546,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2024",
     speaker: "Alice Chan",
     affiliation: "Porsche Digital",
-    topic: "AI product collaboration",
+    topic: "AI Product Collaboration",
     summary:
       "Industry collaborator at Porsche Digital focused on AI product initiatives, partnerships, and applied innovation programs.",
     whyItMatters:
@@ -550,12 +560,13 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2024",
     speaker: "Ankit Gupta",
     affiliation: "Schwarz IT",
-    topic: "Enterprise GenAI workflows",
+    topic: "Enterprise GenAI Workflows",
     summary:
       "Enterprise AI practitioner connected to Schwarz IT with experience in data science, NLP, and generative AI applications.",
     whyItMatters:
       "The session adds an enterprise operations perspective to the course's generative AI coverage.",
     initials: "AG",
+    imageSrc: "/images/guest-speakers/ankit-gupta.jpg",
     mediaVariant: "portrait"
   },
   {
@@ -563,7 +574,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2025",
     speaker: "Johannes Hoffart",
     affiliation: "SAP",
-    topic: "Agents and knowledge graphs",
+    topic: "Agents and Knowledge Graphs",
     summary:
       "AI leader at SAP working on enterprise foundation models, knowledge graphs, and intelligent business systems.",
     whyItMatters:
@@ -577,7 +588,7 @@ export const guestLectureArchive: SemesterGuestLecture[] = [
     semesterId: "ss-2025",
     speaker: "Timon Höfer",
     affiliation: "Porsche Digital",
-    topic: "Practical GenAI adoption",
+    topic: "Practical GenAI Adoption",
     summary:
       "AI researcher and product-oriented practitioner at Porsche Digital working on LLM adoption and applied industrial AI workflows.",
     whyItMatters:
@@ -594,7 +605,7 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ws-2024-25",
     name: "Ludwig Felder",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches human-LLM collaboration and development tools for LLM-powered applications at the Chair of Software Engineering & AI.",
+    bio: "Human-LLM collaboration and development tools for LLM-powered applications",
     initials: "LF",
     imageSrc: "/images/team/ludwig-felder.webp",
     mediaVariant: "portrait"
@@ -604,17 +615,18 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ws-2024-25",
     name: "Shen Hu",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
+    bio: "GUI agent and agent personalization",
     initials: "SH",
     imageSrc: "/images/team/shen-hu.webp",
-    mediaVariant: "portrait"
+    mediaVariant: "portrait",
+    isAdminTutor: true
   },
   {
     id: "yuetian-mao",
     semesterId: "ws-2024-25",
     name: "Yuetian Mao",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches intelligent software engineering and query refinement as part of the Software Engineering & AI chair.",
+    bio: "Intelligent software engineering and query refinement",
     initials: "YM",
     imageSrc: "/images/team/yuetian-mao.webp",
     mediaVariant: "portrait"
@@ -624,17 +636,18 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ss-2025",
     name: "Yuetian Mao",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches intelligent software engineering and query refinement as part of the Software Engineering & AI chair.",
+    bio: "Intelligent software engineering and query refinement",
     initials: "YM",
     imageSrc: "/images/team/yuetian-mao.webp",
-    mediaVariant: "portrait"
+    mediaVariant: "portrait",
+    isAdminTutor: true
   },
   {
     id: "zhen-tao",
     semesterId: "ss-2025",
     name: "Zhen Tao",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches AI compliance and usable privacy as part of the Software Engineering & AI chair.",
+    bio: "AI compliance and usable privacy",
     initials: "ZT",
     imageSrc: "/images/team/zhen-tao.webp",
     mediaVariant: "portrait"
@@ -644,17 +657,18 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ws-2025-26",
     name: "Shen Hu",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
+    bio: "GUI agent and agent personalization",
     initials: "SH",
     imageSrc: "/images/team/shen-hu.webp",
-    mediaVariant: "portrait"
+    mediaVariant: "portrait",
+    isAdminTutor: true
   },
   {
     id: "zhen-tao",
     semesterId: "ws-2025-26",
     name: "Zhen Tao",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches AI compliance and usable privacy as part of the Software Engineering & AI chair.",
+    bio: "AI compliance and usable privacy",
     initials: "ZT",
     imageSrc: "/images/team/zhen-tao.webp",
     mediaVariant: "portrait"
@@ -664,7 +678,7 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ss-2026",
     name: "Emilija Gjorgjevska",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Generative Engine Optimization (GEO).",
+    bio: "Generative Engine Optimization (GEO)",
     initials: "EG",
     imageSrc: "/images/team/emilija-gjorgjevska.webp",
     mediaVariant: "portrait"
@@ -674,17 +688,18 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ss-2026",
     name: "Christoph Timmermann",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Multimodal learning.",
+    bio: "Multimodal learning",
     initials: "CT",
     imageSrc: "/images/team/christoph-timmermann.webp",
-    mediaVariant: "portrait"
+    mediaVariant: "portrait",
+    isAdminTutor: true
   },
   {
     id: "zixu-wang",
     semesterId: "ss-2026",
     name: "Zixu Wang",
     role: "External Doctoral Candidate",
-    bio: "AI for automotive software development.",
+    bio: "AI for automotive software development",
     initials: "ZW",
     imageSrc: "/images/team/zixu-wang.webp",
     mediaVariant: "portrait"
@@ -694,17 +709,18 @@ export const tutorArchive: SemesterTutor[] = [
     semesterId: "ss-2024",
     name: "Shen Hu",
     role: "Doctoral Candidate & Research Associate",
-    bio: "Researches AI-empowered accessibility testing and LLM role-playing for software usage and testing at TUM SEAI.",
+    bio: "GUI agent and agent personalization",
     initials: "SH",
     imageSrc: "/images/team/shen-hu.webp",
-    mediaVariant: "portrait"
+    mediaVariant: "portrait",
+    isAdminTutor: true
   },
   {
     id: "han-wang",
     semesterId: "ss-2024",
     name: "Han Wang",
     role: "Visiting Researcher",
-    bio: "Unit Testing for Software Engineering and AI.",
+    bio: "Unit Testing for Software Engineering and AI",
     initials: "HW",
     imageSrc: "/images/team/han-wang.webp",
     mediaVariant: "portrait"
@@ -713,17 +729,29 @@ export const tutorArchive: SemesterTutor[] = [
 
 export const projectArchive: SemesterProject[] = [
   {
-    id: "career-prep-ai",
+    id: "cognideck",
     semesterId: "ws-2025-26",
-    title: "Career Prep AI",
-    domain: "Career and education",
-    technique: "LLM guidance, interview simulation, resume tailoring",
+    title: "CogniDeck",
+    domain: "Education Assistant",
+    technique: "AI-generated flashcards, smart study sessions",
     summary:
-      "A career-preparation assistant that supports CV refinement, job-fit analysis, interview practice, and feedback loops for students approaching internships or graduate roles.",
-    themes: ["Semantic Search", "Career Guidance"],
-    initials: "CP",
-    imageSrc:
-      "public/projects/career-prep-ai.png",
+      "Leverage your studies through an AI-powered flashcard experience. CogniDeck automates deck generation, creates personalized active recall questions, and serves as a real-time study companion.",
+    themes: ["Active Recall", "Study Companion"],
+    initials: "CD",
+    videoSrc: "/videos/projects/cognideck.mp4",
+    mediaVariant: "abstract"
+  },
+  {
+    id: "chatsql",
+    semesterId: "ws-2025-26",
+    title: "ChatSQL",
+    domain: "Database Utility",
+    technique: "Natural language queries, schema-aware generation",
+    summary:
+      "A Generative-AI utility that translates natural language questions into schema-aware SQL queries, helping developers and business users interact with databases effortlessly.",
+    themes: ["SQL Generation", "Natural Language Query"],
+    initials: "CS",
+    videoSrc: "/videos/projects/chatsql.mp4",
     mediaVariant: "abstract"
   },
   // {
@@ -750,8 +778,7 @@ export const projectArchive: SemesterProject[] = [
       "A multimodal support concept for industrial use for Rösberg Engineering GmbH, combining chat, voice, and visual signals to guide inspections and improve information access in operational settings.",
     themes: ["Voice & Vision Copilot"],
     initials: "RV",
-    imageSrc:
-      "public/projects/ROSBERG.png",
+    videoSrc: "/videos/projects/roesberg-vision-ai.mp4",
     mediaVariant: "abstract"
   },
   {
@@ -764,8 +791,7 @@ export const projectArchive: SemesterProject[] = [
       "An intelligent assistant developed for KAKO Elektro GmbH that automates critical workflows in cable confection manufacturing.",
     themes: ["LLM-powered Agent"],
     initials: "KK",
-    imageSrc:
-      "public/projects/KAKO.png",
+    videoSrc: "/videos/projects/kako-ai.mp4",
     mediaVariant: "abstract"
   },
   {
@@ -778,8 +804,7 @@ export const projectArchive: SemesterProject[] = [
       "Your smart companion for a healthier lifestyle. Whether you are looking to lose weight, build muscle, or simply maintain a balanced diet, Nutri-AI makes tracking your nutrition effortless and accurate",
     themes: ["Image Understanding"],
     initials: "NU",
-    imageSrc:
-      "public/projects/group4.png",
+    videoSrc: "/videos/projects/nutri-ai.mp4",
     mediaVariant: "abstract"
   },
   {
@@ -792,8 +817,7 @@ export const projectArchive: SemesterProject[] = [
       "A web-based application that helps you create personalized outfit suggestions using artificial intelligence. You can build a digital version of your wardrobe, chat with an AI stylist and visualize complete outfits on yourself.",
     themes: ["Personalized Outfit Suggestions"],
     initials: "FA",
-    imageSrc:
-      "public/projects/AI-Fashion-Stylist.png",
+    videoSrc: "/videos/projects/fashion-ai.mp4",
     mediaVariant: "abstract"
   }
   // {
@@ -896,25 +920,38 @@ export const metricsHighlights = [
   { label: "2024 Winter", value: 80, note: "students" },
   { label: "2025 Summer", value: 89, note: "students" },
   { label: "2025 Winter", value: 427, note: "students" },
-  { label: "2026 Summer", value: 210, note: "students (est.)" }
+  { label: "2026 Summer", value: 210, note: "students", waiting: 241 }
 ] as const;
 
 export const resourceLinks: ResourceLink[] = [
   {
     title: "TUM Course Page",
     description: "Official module description and academic credits information.",
-    href: siteMeta.officialUrl
+    href: siteMeta.officialUrl,
+    icon: "school",
+    actionIcon: "arrow_outward"
+  },
+  {
+    title: "TUM Registration",
+    description: "TUMOnline official registration procedure portal for class participation and exams.",
+    href: siteMeta.registrationUrl,
+    icon: "how_to_reg",
+    actionIcon: "arrow_outward"
   },
   {
     title: "Moodle Login",
     description: "Central gateway for enrolled students to access assignments.",
     href: siteMeta.moodleUrl,
-    emphasis: "primary"
+    emphasis: "primary",
+    icon: "login",
+    actionIcon: "login"
   },
   {
     title: "TUM Informatics",
     description: "Explore the department and surrounding research labs.",
-    href: siteMeta.departmentUrl
+    href: siteMeta.departmentUrl,
+    icon: "account_balance",
+    actionIcon: "corporate_fare"
   }
 ];
 
@@ -1003,11 +1040,11 @@ export const homeFeedbackQuotes: HomeFeedbackQuote[] = [
 
 export const showcasePlaceholders = {
   teamIntro:
-    "The support roster can expand in future semesters. Placeholder handling keeps the layout stable without inventing people or roles.",
+    "Our teaching support roster is updated dynamically as assistant and mentor assignments are confirmed for each active semester.",
   lecturesIntro:
-    "The lecture archive is semester-aware and can accept more verified sessions later without changing the page design.",
+    "The guest lecture archive is updated regularly as industry experts and research presentations are scheduled across the timeline.",
   resourcesIntro:
-    "The public site stays intentionally selective: enough to orient visitors, without turning into an exposed course repository."
+    "A curated index of core tools and official links. Enrolled students should access Moodle for comprehensive lecture materials."
 } as const;
 
 export const lecturerProfile = {
@@ -1043,7 +1080,8 @@ export function getSemesterLectures(semesterId: string) {
 }
 
 export function getSemesterTutors(semesterId: string) {
-  return tutorArchive.filter((tutor) => tutor.semesterId === semesterId);
+  const list = tutorArchive.filter((tutor) => tutor.semesterId === semesterId);
+  return [...list].sort((a, b) => (b.isAdminTutor ? 1 : 0) - (a.isAdminTutor ? 1 : 0));
 }
 
 export function getSemesterProjects(semesterId: string) {
@@ -1076,13 +1114,14 @@ export function getSemesterTutorSlots(semesterId: string) {
       semesterId,
       name: "Staff slot reserved",
       role: "Details to be announced",
-      bio: `Additional teaching support for ${semester?.label ?? "this semester"} can be published here when the public-facing roster is ready.`,
+      bio: `Teaching support and tutoring allocations for the ${semester?.label ?? "active"} semester.`,
       initials: "TS",
       imageSrc: undefined,
       isPlaceholder: true,
       placeholderLabel: "Placeholder",
-      mediaVariant: "initials" as const
-    }))
+      mediaVariant: "initials" as const,
+      isAdminTutor: false
+    } as SemesterTutor))
   ];
 }
 
@@ -1105,7 +1144,7 @@ export function getSemesterProjectSlots(semesterId: string) {
       summary:
         index === needed - 1
           ? "Applications for the next project cycle will appear here once the semester showcase is ready."
-          : "This placeholder maintains the stitched gallery rhythm until a verified project summary is added.",
+          : "Additional student project highlights and implementation details will be featured as teams complete their development cycles.",
       themes: index === needed - 1 ? ["Applications open", "Future update"] : ["Placeholder", "Future update"],
       initials: index === needed - 1 ? "+" : "FP",
       imageSrc: projectArchive[index % projectArchive.length]?.imageSrc ?? showcaseMedia.projectHero,

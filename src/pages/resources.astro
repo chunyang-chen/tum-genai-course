@@ -31,7 +31,7 @@ const schema = {
     </header>
 
     <section class="mb-24 grid grid-cols-1 gap-8 md:grid-cols-3">
-      {resourceLinks.map((resource, index) => (
+      {resourceLinks.map((resource) => (
         <a
           href={resource.href}
           target={isExternalUrl(resource.href) ? "_blank" : undefined}
@@ -48,7 +48,7 @@ const schema = {
               "material-symbols-outlined text-[1.7rem] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1",
               resource.emphasis === "primary" ? "text-on-primary-container" : "text-primary"
             ]}>
-              {resource.emphasis === "primary" ? "login" : ["arrow_outward", "login", "corporate_fare"][index]}
+              arrow_outward
             </span>
           </div>
           <div class="relative z-10">
@@ -56,7 +56,7 @@ const schema = {
               "material-symbols-outlined mb-4 text-[1.45rem]",
               resource.emphasis === "primary" ? "" : "text-primary"
             ]} style="font-variation-settings: 'FILL' 1;">
-              {["school", "vpn_key", "account_balance"][index]}
+              {resource.icon || "school"}
             </span>
             <h3 class="mb-2 font-headline text-2xl leading-tight font-bold">
               {resource.title}

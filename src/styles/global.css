@@ -148,19 +148,7 @@ a {
     linear-gradient(135deg, #445467, #1e293b 58%, #111827);
 }
 
-.placeholder-portrait::after {
-  content: attr(data-initials);
-  position: absolute;
-  inset: auto 1.5rem 1.2rem auto;
-  border-radius: 999px;
-  background: rgba(0, 77, 147, 0.9);
-  padding: 0.3rem 0.7rem;
-  color: white;
-  font-family: Manrope, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-}
+
 
 .placeholder-avatar {
   display: flex;
@@ -188,9 +176,16 @@ a {
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 1px;
-  transform: translateX(-0.5px);
-  background: linear-gradient(to bottom, rgba(193, 198, 212, 0), rgba(193, 198, 212, 0.65) 10%, rgba(193, 198, 212, 0.65) 90%, rgba(193, 198, 212, 0));
+  width: 2px;
+  transform: translateX(-50%);
+  z-index: 10;
+  background: linear-gradient(
+    to bottom,
+    rgba(193, 198, 212, 0),
+    rgba(193, 198, 212, 0.85) 10%,
+    rgba(193, 198, 212, 0.85) 90%,
+    rgba(193, 198, 212, 0)
+  );
 }
 
 .home-orb {
@@ -254,7 +249,7 @@ a {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 559px) {
   .curriculum-line::before {
     display: none;
   }
