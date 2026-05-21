@@ -1,0 +1,286 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import { siteMeta } from "../content/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Datenschutzerklärung",
+  description:
+    "Privacy statement for the public course showcase of the TUM Generative AI course.",
+  url: new URL("/datenschutz", Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title="Datenschutzerklärung"
+  description="Datenschutzerklärung für den Webauftritt des TUM-Kurses Foundations and Application of Generative AI."
+  path="/datenschutz"
+  breadcrumbs={[{ name: "Datenschutz", href: "/datenschutz" }]}
+  schema={schema}
+>
+  <main class="mx-auto max-w-3xl px-6 pb-24 pt-32">
+    <header class="mb-12">
+      <h1 class="mb-4 font-headline text-5xl font-extrabold tracking-tight text-on-surface md:text-6xl">
+        Datenschutzerkl&auml;rung
+      </h1>
+      <p class="text-lg text-on-surface-variant">
+        Informationen zur Verarbeitung personenbezogener Daten beim Besuch des
+        Webauftritts &bdquo;{siteMeta.title}&ldquo; ({siteMeta.code}) der
+        Technischen Universit&auml;t M&uuml;nchen.
+      </p>
+    </header>
+
+    <article class="space-y-12 text-base leading-relaxed text-on-surface">
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">1. Name und Kontaktdaten des Verantwortlichen</h2>
+        <p>
+          Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) und
+          des Bayerischen Datenschutzgesetzes (BayDSG) ist:
+        </p>
+        <p class="mt-3">
+          Technische Universit&auml;t M&uuml;nchen<br />
+          K&ouml;rperschaft des &ouml;ffentlichen Rechts<br />
+          vertreten durch den Pr&auml;sidenten Prof. Dr. Thomas F. Hofmann<br />
+          Arcisstra&szlig;e 21, 80333 M&uuml;nchen<br />
+          Telefon: +49 89 289 01<br />
+          E-Mail: <a class="text-primary underline" href="mailto:poststelle@tum.de">poststelle@tum.de</a>
+        </p>
+        <p class="mt-3">
+          Inhaltlich verantwortlich f&uuml;r diesen Webauftritt:<br />
+          {siteMeta.lecturer}, Lehrstuhl f&uuml;r Software Engineering &amp; AI,
+          TUM Campus Heilbronn,
+          <a class="text-primary underline" href="mailto:chunyang.chen@tum.de">chunyang.chen@tum.de</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">2. Kontaktdaten des Datenschutzbeauftragten</h2>
+        <p>
+          Den Datenschutzbeauftragten der Technischen Universit&auml;t M&uuml;nchen
+          erreichen Sie unter:
+        </p>
+        <p class="mt-3">
+          Datenschutzbeauftragter der TUM<br />
+          Arcisstra&szlig;e 21, 80333 M&uuml;nchen<br />
+          Telefon: +49 89 289 17052<br />
+          E-Mail: <a class="text-primary underline" href="mailto:beauftragter@datenschutz.tum.de">beauftragter@datenschutz.tum.de</a><br />
+          Web: <a
+            class="text-primary underline"
+            href="https://www.datenschutz.tum.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >www.datenschutz.tum.de</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">3. Zwecke und Rechtsgrundlagen der Verarbeitung</h2>
+        <p>
+          Wir verarbeiten personenbezogene Daten beim Besuch dieser Website
+          ausschlie&szlig;lich, um die Inhalte des &ouml;ffentlichen Kursauftritts
+          bereitzustellen, deren Sicherheit und Stabilit&auml;t zu gew&auml;hrleisten
+          und Missbrauch abzuwehren. Rechtsgrundlage hierf&uuml;r ist Art. 6
+          Abs. 1 UAbs. 1 lit. e DSGVO in Verbindung mit Art. 4 BayDSG und Art. 3
+          Abs. 1 BayHIG (Wahrnehmung der gesetzlichen Aufgaben in Forschung und
+          Lehre).
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">4. Hosting und Bereitstellung der Website</h2>
+        <p>
+          Diese Website ist ein statischer Webauftritt (Astro) und wird auf einem
+          Server der Technischen Universit&auml;t M&uuml;nchen innerhalb der
+          Europ&auml;ischen Union betrieben. Eine &Uuml;bermittlung der beim
+          Webabruf anfallenden technischen Daten an Dritte oder in Drittl&auml;nder
+          findet im Rahmen des Hostings nicht statt.
+        </p>
+        <p class="mt-3">
+          Rechtsgrundlage f&uuml;r die Verarbeitung ist Art. 6 Abs. 1 UAbs. 1
+          lit. e DSGVO in Verbindung mit Art. 4 BayDSG. Die Verarbeitung dient
+          der ordnungsgem&auml;&szlig;en Bereitstellung und Sicherheit der
+          Website.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">5. Server-Logfiles</h2>
+        <p>
+          Bei jedem Zugriff auf diese Website werden durch den Webserver der
+          Technischen Universit&auml;t M&uuml;nchen folgende technische
+          Informationen kurzzeitig in Server-Logfiles gespeichert, die zur
+          Auslieferung der Inhalte und zur Gew&auml;hrleistung der Sicherheit
+          und Stabilit&auml;t des Systems technisch erforderlich sind:
+        </p>
+        <ul class="mt-3 list-disc pl-6">
+          <li>IP-Adresse des aufrufenden Endger&auml;ts</li>
+          <li>Datum und Uhrzeit des Zugriffs</li>
+          <li>Name und URL der abgerufenen Datei</li>
+          <li>&Uuml;bertragene Datenmenge und HTTP-Statuscode</li>
+          <li>Referrer-URL, sofern &uuml;bermittelt</li>
+          <li>verwendeter Browser, dessen Sprache und Version sowie das Betriebssystem</li>
+        </ul>
+        <p class="mt-3">
+          Die Logdaten werden ausschlie&szlig;lich zu den genannten Zwecken
+          verarbeitet, sp&auml;testens nach sieben Tagen automatisch gel&ouml;scht
+          und nicht mit anderen Datenbest&auml;nden zusammengef&uuml;hrt. Eine
+          Auswertung der IP-Adressen zu Marketing- oder Profilbildungszwecken
+          erfolgt nicht. Rechtsgrundlage ist Art. 6 Abs. 1 UAbs. 1 lit. e DSGVO
+          in Verbindung mit Art. 4 BayDSG.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">6. Cookies</h2>
+        <p>
+          Diese Website setzt <strong>keine Cookies</strong> ein und nutzt keine
+          vergleichbaren Tracking-Technologien (z.&nbsp;B. Local Storage zu
+          Tracking-Zwecken, Fingerprinting, Pixel). Es findet
+          <strong>keine Reichweitenmessung</strong> und kein
+          <strong>Webtracking</strong> statt.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">7. Einbindung externer Dienste</h2>
+        <p>
+          Zur Darstellung der Seite werden Schriftarten von
+          <strong>Google Fonts</strong> (Google Ireland Limited, Gordon House, Barrow
+          Street, Dublin 4, Irland) eingebunden. Beim Laden der Schriftarten wird
+          eine Verbindung zu Servern von Google aufgebaut; dabei wird die
+          IP-Adresse Ihres Endger&auml;tes an Google &uuml;bertragen. Die
+          Einbindung erfolgt zur ansprechenden Darstellung der Inhalte; die
+          Rechtsgrundlage ist Art. 6 Abs. 1 UAbs. 1 lit. e DSGVO in Verbindung
+          mit Art. 4 BayDSG.
+        </p>
+        <p class="mt-3">
+          Soweit eine &Uuml;bermittlung in Drittl&auml;nder erfolgt, st&uuml;tzt
+          sich diese auf den Angemessenheitsbeschluss der EU-Kommission zum
+          EU&ndash;US Data Privacy Framework. Weitere Informationen:
+          <a
+            class="text-primary underline"
+            href="https://policies.google.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Datenschutzerkl&auml;rung von Google</a>.
+        </p>
+        <p class="mt-3">
+          Externe Verlinkungen (z.&nbsp;B. zu TUMonline, Moodle, der TUM-Website,
+          GitHub-Repositories oder Webseiten von Gastdozentinnen und Gastdozenten)
+          werden erst durch aktives Anklicken aufgerufen. F&uuml;r die Verarbeitung
+          personenbezogener Daten auf diesen Webseiten sind die jeweiligen Anbieter
+          verantwortlich.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">8. Kontaktaufnahme per E-Mail</h2>
+        <p>
+          Wenn Sie uns per E-Mail kontaktieren, werden die von Ihnen gemachten
+          Angaben (E-Mail-Adresse, ggf. Name und Telefonnummer sowie die in der
+          Nachricht enthaltenen Informationen) zur Bearbeitung Ihres Anliegens
+          gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 UAbs. 1 lit. e DSGVO in
+          Verbindung mit Art. 4 BayDSG. Die Daten werden gel&ouml;scht, sobald
+          sie f&uuml;r den Zweck ihrer Verarbeitung nicht mehr erforderlich sind
+          und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">9. Empf&auml;nger personenbezogener Daten</h2>
+        <p>
+          Das Hosting der Website erfolgt durch die Technische Universit&auml;t
+          M&uuml;nchen selbst; es findet keine Weitergabe der Zugriffsdaten an
+          externe Hosting-Dienstleister statt. Empf&auml;nger personenbezogener
+          Daten sind:
+        </p>
+        <ul class="mt-3 list-disc pl-6">
+          <li>Google Ireland Limited f&uuml;r die Auslieferung von Webfonts (siehe Ziffer 7)</li>
+        </ul>
+        <p class="mt-3">
+          Eine Weitergabe Ihrer Daten zu Werbe- oder Analysezwecken erfolgt
+          nicht.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">10. Speicherdauer</h2>
+        <p>
+          Die in den Server-Logfiles erhobenen Daten (siehe Ziffer 5) werden
+          sp&auml;testens nach sieben Tagen automatisch gel&ouml;scht.
+          Personenbezogene Daten aus E-Mail-Kontakten werden gel&ouml;scht,
+          sobald sie f&uuml;r den Zweck der Bearbeitung nicht mehr erforderlich
+          sind und gesetzliche Aufbewahrungspflichten dem nicht entgegenstehen.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">11. Rechte der betroffenen Personen</h2>
+        <p>Sie haben gegen&uuml;ber der TUM folgende Rechte:</p>
+        <ul class="mt-3 list-disc pl-6">
+          <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+          <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+          <li>Recht auf L&ouml;schung (Art. 17 DSGVO)</li>
+          <li>Recht auf Einschr&auml;nkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Recht auf Daten&uuml;bertragbarkeit (Art. 20 DSGVO)</li>
+          <li>Widerspruchsrecht gegen die Verarbeitung (Art. 21 DSGVO)</li>
+        </ul>
+        <p class="mt-3">
+          Zur Geltendmachung Ihrer Rechte wenden Sie sich bitte an den unter
+          Ziffer 2 genannten Datenschutzbeauftragten.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">12. Beschwerderecht bei der Aufsichtsbeh&ouml;rde</h2>
+        <p>
+          Ihnen steht zudem ein Beschwerderecht bei der Aufsichtsbeh&ouml;rde zu.
+          Zust&auml;ndige Aufsichtsbeh&ouml;rde f&uuml;r die TUM ist:
+        </p>
+        <p class="mt-3">
+          Der Bayerische Landesbeauftragte f&uuml;r den Datenschutz<br />
+          Wagm&uuml;llerstra&szlig;e 18<br />
+          80538 M&uuml;nchen<br />
+          Telefon: +49 89 212672-0<br />
+          E-Mail: <a class="text-primary underline" href="mailto:poststelle@datenschutz-bayern.de">poststelle@datenschutz-bayern.de</a><br />
+          Web: <a
+            class="text-primary underline"
+            href="https://www.datenschutz-bayern.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >www.datenschutz-bayern.de</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">13. Pflicht zur Bereitstellung der Daten</h2>
+        <p>
+          Sie sind weder gesetzlich noch vertraglich verpflichtet, uns
+          personenbezogene Daten zur Verf&uuml;gung zu stellen. Eine Nutzung der
+          &ouml;ffentlich zug&auml;nglichen Inhalte dieser Website ist ohne die
+          Angabe personenbezogener Daten m&ouml;glich; die unter Ziffer 4
+          beschriebenen technischen Daten werden beim Webabruf jedoch
+          systembedingt erhoben.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">14. Automatisierte Entscheidungsfindung</h2>
+        <p>
+          Eine automatisierte Entscheidungsfindung einschlie&szlig;lich Profiling
+          gem. Art. 22 DSGVO findet nicht statt.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">15. Stand dieser Datenschutzerkl&auml;rung</h2>
+        <p>
+          Diese Datenschutzerkl&auml;rung wird bei &Auml;nderungen der
+          technischen oder rechtlichen Rahmenbedingungen angepasst. Stand: Mai 2026.
+        </p>
+      </section>
+    </article>
+  </main>
+</BaseLayout>

@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { navigation, siteMeta } from "../content/site";
 import { isExternalUrl } from "../utils/links";
+import Footer from "./Footer.astro";
 
 type Crumb = {
   name: string;
@@ -172,6 +173,8 @@ const withBase = (href: string) => {
     <div id="content">
       <slot />
     </div>
+
+    <Footer />
 
     <script is:inline>
       document.querySelectorAll("[data-tab-group]").forEach((group) => {
