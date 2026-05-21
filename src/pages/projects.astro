@@ -13,8 +13,7 @@ const schema = {
   url: new URL("/projects", Astro.site).toString()
 };
 
-const basePrefix = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
-const videoSrc = `${basePrefix}/GenAI_project_demo.mp4`;
+
 ---
 
 <BaseLayout
@@ -77,36 +76,10 @@ const videoSrc = `${basePrefix}/GenAI_project_demo.mp4`;
       </div>
     </section>
 
-    <section class="mx-auto mb-20 max-w-5xl px-6">
-      <div class="overflow-hidden rounded-2xl bg-surface-container-low shadow-lg">
-        <div class="p-8">
-          <div class="mb-6 text-center">
-            <span class="mb-3 inline-block text-xs font-bold uppercase tracking-widest text-primary">
-              Project Showcase
-            </span>
-            <h2 class="mb-3 text-3xl font-bold text-on-surface">
-              Demo Video
-            </h2>
-            <p class="text-sm text-on-surface-variant">
-              Watch student projects through practical demonstrations
-            </p>
-          </div>
-          <div class="relative aspect-video w-full overflow-hidden rounded-xl bg-surface-container-highest">
-            <video
-              controls
-              class="h-full w-full object-contain"
-              preload="metadata"
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <section class="mx-auto max-w-7xl px-6">
-      <section class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-2">
         {projectGallery.map((project) => (
           <ProjectTile
             initials={project.initials}
@@ -115,6 +88,7 @@ const videoSrc = `${basePrefix}/GenAI_project_demo.mp4`;
             body={project.summary}
             tags={project.themes}
             imageSrc={project.imageSrc}
+            videoSrc={project.videoSrc}
             placeholder={project.isPlaceholder}
           />
         ))}

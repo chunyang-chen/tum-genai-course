@@ -2,23 +2,21 @@
 import BaseLayout from "../components/BaseLayout.astro";
 import FeedbackShowcase from "../components/FeedbackShowcase.astro";
 import {
-  currentSemester,
   faqSummary,
-  getFeaturedProject,
   getSemesterLectureSlots,
   latestInsightsSemesterId,
   metricsHighlights,
   modulePreview,
-  showcaseMedia,
   siteMeta
 } from "../content/site";
 import { isExternalUrl, withBasePath } from "../utils/links";
 
-const featuredProject = getFeaturedProject(currentSemester.id);
 const semesterLectures = getSemesterLectureSlots(latestInsightsSemesterId);
-const metricsMax = Math.max(...metricsHighlights.map((item) => item.value));
+const metricsMax = Math.max(...metricsHighlights.map((item) => item.value + ('waiting' in item ? item.waiting : 0)));
 const guestInsightsTwoUp = semesterLectures.length === 2;
 const getAssetUrl = (href: string) => withBasePath(href, import.meta.env.BASE_URL);
+const basePrefix = import.meta.env.BASE_URL === "/" ? "" : import.meta.env.BASE_URL.replace(/\/$/, "");
+const videoSrc = `${basePrefix}/GenAI_project_demo.mp4`;
 
 const heroFacts = [
   ["Lecturer", siteMeta.lecturer],
@@ -76,6 +74,15 @@ const schema = {
             >
               Official TUM Online
               <span class="material-symbols-outlined">arrow_outward</span>
+            </a>
+            <a
+              class="flex items-center gap-2 rounded-md border border-outline-variant px-8 py-3.5 font-bold text-on-surface transition-all hover:bg-surface-container-low"
+              href={siteMeta.registrationUrl}
+              target={isExternalUrl(siteMeta.registrationUrl) ? "_blank" : undefined}
+              rel={isExternalUrl(siteMeta.registrationUrl) ? "noopener noreferrer" : undefined}
+            >
+              Course Registration
+              <span class="material-symbols-outlined">how_to_reg</span>
             </a>
             <a
               class="flex items-center gap-2 rounded-md border border-outline-variant px-8 py-3.5 font-bold text-on-surface transition-all hover:bg-surface-container-low"
@@ -150,17 +157,15 @@ const schema = {
           project delivery.
         </p>
 
-        <div class="group relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
-          <img class="h-full w-full object-cover opacity-50" src={showcaseMedia.homeSpotlight} alt="Featured project visual" />
-          <div class="absolute inset-0 flex items-center justify-center">
-            <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary transition-transform group-hover:scale-110">
-              <span class="material-symbols-outlined ml-1 text-3xl text-on-primary">play_arrow</span>
-            </div>
-          </div>
-          <div class="absolute bottom-8 left-8 text-left">
-            <p class="mb-1 text-xs font-bold uppercase tracking-widest text-primary-fixed">Featured Student Project</p>
-            <p class="text-xl font-bold">{featuredProject.title}</p>
-          </div>
+        <div class="mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-3xl bg-slate-900 shadow-2xl">
+          <video
+            controls
+            class="h-full w-full object-contain"
+            preload="metadata"
+          >
+            <source src={videoSrc} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>
@@ -191,7 +196,7 @@ const schema = {
               </div>
               <h3 class="mb-1 text-xl font-bold font-headline">{lecture.speaker}</h3>
               <p class="mb-4 text-sm font-semibold text-primary">{lecture.affiliation}</p>
-              <p class="text-sm text-on-surface-variant">"{lecture.topic}."</p>
+              <p class="text-sm text-on-surface-variant">{lecture.topic}</p>
             </article>
           ))}
         </div>
@@ -209,36 +214,51 @@ const schema = {
             technically grounded generative AI education.
           </p>
           <div class="space-y-4">
-            {metricsHighlights.map((item, index) => (
-              <div
-                class:list={[
-                  "flex items-center justify-between rounded-xl p-3.5",
-                  index === 3
-                    ? "bg-primary text-on-primary shadow-md"
-                    : index === 4
-                      ? "border border-primary/20 bg-surface-container-low"
-                      : "bg-surface-container-low"
-                ]}
-              >
-                <span class="text-sm font-bold">{item.label}</span>
-                <span class:list={[index === 3 ? "font-black" : "font-black text-primary"]}>
-                  {item.value} {item.note}
-                </span>
-              </div>
-            ))}
+            {metricsHighlights.map((item, index) => {
+              const hasWaiting = 'waiting' in item;
+              return (
+                <div
+                  class:list={[
+                    "flex items-center justify-between rounded-xl p-3.5 border-l-4",
+                    index === 4
+                      ? "border-primary bg-surface-container-low shadow-sm"
+                      : "border-outline-variant/30 bg-surface-container-low"
+                  ]}
+                >
+                  <span class="text-sm font-bold">{item.label}</span>
+                  <span class="font-black text-primary text-right flex flex-col items-end">
+                    <span>{item.value} {item.note}</span>
+                    {hasWaiting && <span class="text-xs font-semibold text-secondary">+{item.waiting} waiting list</span>}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
         <div class="relative flex h-[350px] items-end justify-between gap-4 pt-10">
-          {metricsHighlights.map((item, index) => (
-            <div
-              class:list={[
-                "flex-1 rounded-t-lg transition-all",
-                index === 3 ? "bg-primary" : "bg-surface-container-high hover:bg-primary-container"
-              ]}
-              style={`height: ${(item.value / metricsMax) * 100}%;`}
-            ></div>
-          ))}
+          {metricsHighlights.map((item) => {
+            const hasWaiting = 'waiting' in item;
+            return (
+              <div class="flex-1 flex flex-col justify-end h-full gap-0.5">
+                {hasWaiting && (
+                  <div
+                    class="w-full rounded-t-md bg-primary-fixed-dim transition-all hover:bg-primary-fixed"
+                    style={`height: ${(item.waiting / metricsMax) * 100}%;`}
+                    title={`${item.waiting} on waiting list`}
+                  ></div>
+                )}
+                <div
+                  class:list={[
+                    "w-full transition-all bg-primary hover:opacity-90",
+                    hasWaiting ? "rounded-b-md" : "rounded-t-md"
+                  ]}
+                  style={`height: ${(item.value / metricsMax) * 100}%;`}
+                  title={`${item.value} enrolled`}
+                ></div>
+              </div>
+            );
+          })}
           <div class="absolute -bottom-6 flex w-full justify-between text-[10px] font-bold uppercase tracking-widest text-secondary">
             <span>S24</span>
             <span>W24</span>
