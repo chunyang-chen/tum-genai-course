@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../components/BaseLayout.astro";
+import { siteMeta } from "../content/site";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Impressum",
+  description:
+    "Legal notice (Impressum) for the public course showcase of the TUM Generative AI course.",
+  url: new URL("/impressum", Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title="Impressum"
+  description="Legal notice (Impressum) for the public course showcase of the TUM Generative AI course."
+  path="/impressum"
+  breadcrumbs={[{ name: "Impressum", href: "/impressum" }]}
+  schema={schema}
+>
+  <main class="mx-auto max-w-3xl px-6 pb-24 pt-32">
+    <header class="mb-12">
+      <h1 class="mb-4 font-headline text-5xl font-extrabold tracking-tight text-on-surface md:text-6xl">
+        Impressum
+      </h1>
+      <p class="text-lg text-on-surface-variant">
+        Angaben gem&auml;&szlig; &sect; 5 DDG sowie nach Art. 10 BayPrG f&uuml;r den
+        Webauftritt des Kurses &bdquo;{siteMeta.title}&ldquo; ({siteMeta.code}).
+      </p>
+    </header>
+
+    <article class="prose-legal space-y-12 text-base leading-relaxed text-on-surface">
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Herausgeber</h2>
+        <p>
+          Technische Universit&auml;t M&uuml;nchen<br />
+          K&ouml;rperschaft des &ouml;ffentlichen Rechts und staatliche Einrichtung<br />
+          Arcisstra&szlig;e 21<br />
+          80333 M&uuml;nchen
+        </p>
+        <p class="mt-3">
+          Telefon: +49 89 289 01<br />
+          Telefax: +49 89 289 22000<br />
+          E-Mail: <a class="text-primary underline" href="mailto:poststelle@tum.de">poststelle@tum.de</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Rechtsform und gesetzliche Vertretung</h2>
+        <p>
+          Die Technische Universit&auml;t M&uuml;nchen ist eine K&ouml;rperschaft des
+          &ouml;ffentlichen Rechts (Art. 11 Abs. 1 BayHIG). Sie wird gesetzlich
+          vertreten durch den Pr&auml;sidenten Prof. Dr. Thomas F. Hofmann.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Zust&auml;ndige Aufsichtsbeh&ouml;rde</h2>
+        <p>
+          Bayerisches Staatsministerium f&uuml;r Wissenschaft und Kunst<br />
+          Salvatorstra&szlig;e 2<br />
+          80333 M&uuml;nchen
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Umsatzsteuer-Identifikationsnummer</h2>
+        <p>DE811193231 (gem&auml;&szlig; &sect; 27a UStG)</p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Inhaltlich verantwortlich</h2>
+        <p>
+          Inhaltlich verantwortlich f&uuml;r diesen Webauftritt ist gem&auml;&szlig;
+          &sect; 18 Abs. 2 MStV:
+        </p>
+        <p class="mt-3">
+          {siteMeta.lecturer}<br />
+          Lehrstuhl f&uuml;r Software Engineering &amp; AI<br />
+          TUM Campus Heilbronn<br />
+          Bildungscampus 2<br />
+          74076 Heilbronn<br />
+          E-Mail: <a class="text-primary underline" href="mailto:chunyang.chen@tum.de">chunyang.chen@tum.de</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Technische Umsetzung</h2>
+        <p>
+          Der Webauftritt wird als statische Seite (Astro) bereitgestellt und auf
+          einem Server der Technischen Universit&auml;t M&uuml;nchen gehostet.
+          N&auml;here Hinweise zur Verarbeitung technischer Daten finden Sie in
+          unserer
+          <a class="text-primary underline" href="/datenschutz">Datenschutzerkl&auml;rung</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Urheberrecht</h2>
+        <p>
+          Layout, grafische Gestaltung, Texte sowie alle Bilder, Grafiken und sonstigen
+          Inhalte dieses Webauftritts sind urheberrechtlich gesch&uuml;tzt. Die
+          Rechte liegen, soweit nicht anders gekennzeichnet, beim Lehrstuhl f&uuml;r
+          Software Engineering &amp; AI der Technischen Universit&auml;t M&uuml;nchen
+          beziehungsweise bei den jeweiligen Urheberinnen und Urhebern. Die private
+          Nutzung im Rahmen der gesetzlichen Bestimmungen ist gestattet. Die Verwendung
+          &uuml;ber den privaten Bereich hinaus &mdash; insbesondere
+          Vervielf&auml;ltigung, Verbreitung, Bearbeitung oder &ouml;ffentliche
+          Wiedergabe &mdash; bedarf der vorherigen schriftlichen Zustimmung des
+          Lehrstuhls f&uuml;r Software Engineering &amp; AI.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Haftungsausschluss</h2>
+        <h3 class="mt-4 mb-2 text-lg font-semibold">Haftung f&uuml;r Inhalte</h3>
+        <p>
+          Die Inhalte dieses Webauftritts wurden mit gr&ouml;&szlig;tm&ouml;glicher
+          Sorgfalt erstellt. F&uuml;r die Richtigkeit, Vollst&auml;ndigkeit und
+          Aktualit&auml;t der Inhalte k&ouml;nnen wir jedoch keine Gew&auml;hr
+          &uuml;bernehmen. Eine Haftung f&uuml;r Sch&auml;den, die aus der Nutzung
+          oder Nichtnutzung der angebotenen Informationen entstehen, ist
+          ausgeschlossen, soweit nicht Vorsatz oder grobe Fahrl&auml;ssigkeit
+          vorliegt.
+        </p>
+
+        <h3 class="mt-4 mb-2 text-lg font-semibold">Haftung f&uuml;r Links</h3>
+        <p>
+          Unser Webauftritt enth&auml;lt Links zu externen Webseiten Dritter, auf
+          deren Inhalte wir keinen Einfluss haben. F&uuml;r die Inhalte der
+          verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der
+          Seiten verantwortlich. Eine permanente inhaltliche Kontrolle der
+          verlinkten Seiten ist ohne konkrete Anhaltspunkte einer Rechtsverletzung
+          nicht zumutbar. Bei Bekanntwerden von Rechtsverst&ouml;&szlig;en werden
+          wir derartige Links umgehend entfernen.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-2xl font-bold">Hinweis zur Online-Streitbeilegung</h2>
+        <p>
+          Die Europ&auml;ische Kommission stellt eine Plattform zur
+          Online-Streitbeilegung (OS) bereit:
+          <a
+            class="text-primary underline"
+            href="https://ec.europa.eu/consumers/odr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >https://ec.europa.eu/consumers/odr</a>.
+          Die Technische Universit&auml;t M&uuml;nchen ist nicht bereit oder
+          verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </section>
+    </article>
+  </main>
+</BaseLayout>
