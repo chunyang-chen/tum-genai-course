@@ -242,7 +242,7 @@ a {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 559px) {
   .curriculum-line::before {
     display: none;
   }
