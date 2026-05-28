@@ -722,8 +722,7 @@ export const projectArchive: SemesterProject[] = [
       "A career-preparation assistant that supports CV refinement, job-fit analysis, interview practice, and feedback loops for students approaching internships or graduate roles.",
     themes: ["Semantic Search", "Career Guidance"],
     initials: "CP",
-    imageSrc:
-      "public/projects/career-prep-ai.png",
+    imageSrc: "/projects/career-prep-ai.png",
     mediaVariant: "abstract"
   },
   // {
@@ -750,8 +749,7 @@ export const projectArchive: SemesterProject[] = [
       "A multimodal support concept for industrial use for Rösberg Engineering GmbH, combining chat, voice, and visual signals to guide inspections and improve information access in operational settings.",
     themes: ["Voice & Vision Copilot"],
     initials: "RV",
-    imageSrc:
-      "public/projects/ROSBERG.png",
+    imageSrc: "/projects/ROSBERG.png",
     mediaVariant: "abstract"
   },
   {
@@ -764,8 +762,7 @@ export const projectArchive: SemesterProject[] = [
       "An intelligent assistant developed for KAKO Elektro GmbH that automates critical workflows in cable confection manufacturing.",
     themes: ["LLM-powered Agent"],
     initials: "KK",
-    imageSrc:
-      "public/projects/KAKO.png",
+    imageSrc: "/projects/KAKO.png",
     mediaVariant: "abstract"
   },
   {
@@ -778,8 +775,7 @@ export const projectArchive: SemesterProject[] = [
       "Your smart companion for a healthier lifestyle. Whether you are looking to lose weight, build muscle, or simply maintain a balanced diet, Nutri-AI makes tracking your nutrition effortless and accurate",
     themes: ["Image Understanding"],
     initials: "NU",
-    imageSrc:
-      "public/projects/group4.png",
+    imageSrc: "/projects/group4.png",
     mediaVariant: "abstract"
   },
   {
@@ -792,8 +788,7 @@ export const projectArchive: SemesterProject[] = [
       "A web-based application that helps you create personalized outfit suggestions using artificial intelligence. You can build a digital version of your wardrobe, chat with an AI stylist and visualize complete outfits on yourself.",
     themes: ["Personalized Outfit Suggestions"],
     initials: "FA",
-    imageSrc:
-      "public/projects/AI-Fashion-Stylist.png",
+    imageSrc: "/projects/AI-Fashion-Stylist.png",
     mediaVariant: "abstract"
   }
   // {
