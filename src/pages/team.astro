@@ -2,6 +2,7 @@
 import BaseLayout from "../components/BaseLayout.astro";
 import SemesterTabs from "../components/SemesterTabs.astro";
 import { getSemesterTutorSlots, getTeamSemesters, lecturerProfile, siteMeta } from "../content/site";
+import { withBasePath } from "../utils/links";
 
 const visibleSemesters = getTeamSemesters();
 const defaultTutorSemester = visibleSemesters[0]?.id ?? "ss-2026";
@@ -24,10 +25,10 @@ const schema = {
 >
   <main class="mx-auto max-w-7xl px-6 pb-24 pt-32">
     <header class="mb-20">
-      <h1 class="mb-6 bg-gradient-to-r from-primary to-tertiary bg-clip-text font-headline text-6xl font-extrabold tracking-tight text-transparent md:text-7xl">
+      <h1 class="mb-6 bg-gradient-to-r from-primary to-tertiary bg-clip-text font-headline text-5xl font-extrabold tracking-tight text-transparent lg:text-6xl">
         The Team
       </h1>
-      <p class="max-w-2xl text-xl leading-relaxed text-on-surface-variant">
+      <p class="max-w-2xl text-lg font-light leading-relaxed text-on-surface-variant">
         Meet the faculty, researchers, and mentors dedicated to exploring the boundaries of generative AI.
       </p>
     </header>
@@ -38,7 +39,7 @@ const schema = {
           <div class="absolute -inset-4 rounded-full bg-primary-fixed opacity-10 blur-3xl"></div>
           <img
             class="relative z-10 h-[500px] w-full rounded-xl object-cover shadow-sm"
-            src={import.meta.env.BASE_URL + lecturerProfile.imageSrc}
+            src={withBasePath(lecturerProfile.imageSrc, import.meta.env.BASE_URL)}
             alt={`Portrait of ${lecturerProfile.name}`}
           />
         </div>
@@ -84,7 +85,7 @@ const schema = {
                 <div class="h-full rounded-lg bg-surface-container-lowest p-6">
                   <div class="mb-6 flex items-center gap-4">
                     {person.imageSrc ? (
-                      <img class="h-16 w-16 rounded-full object-cover" src={import.meta.env.BASE_URL + person.imageSrc} alt={`Portrait of ${person.name}`} />
+                      <img class="h-16 w-16 rounded-full object-cover" src={withBasePath(person.imageSrc, import.meta.env.BASE_URL)} alt={`Portrait of ${person.name}`} />
                     ) : (
                       <div class="placeholder-portrait relative h-16 w-16 rounded-full" data-initials={person.initials}></div>
                     )}
